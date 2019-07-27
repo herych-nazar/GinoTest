@@ -39,6 +39,9 @@
 			isa = PBXGroup;
 			children = (
 				BB32C94822EC2FDE008AE956 /* GinoTest */,
+				BB32C95D22EC3954008AE956 /* UI */,
+				BB32C95E22EC3961008AE956 /* Core */,
+				BB32C95F22EC396B008AE956 /* Common */,
 				BB32C94722EC2FDE008AE956 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,13 +58,106 @@
 			isa = PBXGroup;
 			children = (
 				BB32C94922EC2FDE008AE956 /* AppDelegate.swift */,
+				BB32C95B22EC3914008AE956 /* Flow */,
+				BB32C95C22EC3926008AE956 /* Resources */,
+			);
+			path = GinoTest;
+			sourceTree = "<group>";
+		};
+		BB32C95B22EC3914008AE956 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
 				BB32C94B22EC2FDE008AE956 /* ViewController.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		BB32C95C22EC3926008AE956 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				BB32C94D22EC2FDE008AE956 /* Main.storyboard */,
 				BB32C95022EC2FDF008AE956 /* Assets.xcassets */,
 				BB32C95222EC2FDF008AE956 /* LaunchScreen.storyboard */,
 				BB32C95522EC2FDF008AE956 /* Info.plist */,
 			);
-			path = GinoTest;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BB32C95D22EC3954008AE956 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				BB32C96022EC39AF008AE956 /* CustomView */,
+				BB32C96122EC39B8008AE956 /* CustomCell */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		BB32C95E22EC3961008AE956 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				BB32C96422EC3A67008AE956 /* Database */,
+				BB32C96322EC3A5F008AE956 /* Manager */,
+				BB32C96222EC3A53008AE956 /* Dependency */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		BB32C95F22EC396B008AE956 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BB32C96522EC3AE8008AE956 /* Helper */,
+				BB32C96622EC3AF0008AE956 /* Extension */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		BB32C96022EC39AF008AE956 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		BB32C96122EC39B8008AE956 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
+		BB32C96222EC3A53008AE956 /* Dependency */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Dependency;
+			sourceTree = "<group>";
+		};
+		BB32C96322EC3A5F008AE956 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		BB32C96422EC3A67008AE956 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		BB32C96522EC3AE8008AE956 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		BB32C96622EC3AF0008AE956 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,7 +380,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YF6FLR9SFP;
-				INFOPLIST_FILE = GinoTest/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/GinoTest/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +398,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YF6FLR9SFP;
-				INFOPLIST_FILE = GinoTest/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/GinoTest/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
