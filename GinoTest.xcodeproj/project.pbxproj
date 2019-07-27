@@ -24,6 +24,11 @@
 		BB32C98C22EC4C43008AE956 /* DressResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C98B22EC4C43008AE956 /* DressResultPresenter.swift */; };
 		BB32C98E22EC4D2D008AE956 /* GinoDressDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C98D22EC4D2D008AE956 /* GinoDressDependencyContainer.swift */; };
 		BB32C99122EC594C008AE956 /* DressFilterResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C99022EC594C008AE956 /* DressFilterResult.swift */; };
+		BBA6CE2822EC84FC00F8B6D9 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6CE2722EC84FC00F8B6D9 /* Helpers.swift */; };
+		BBA6CE2922EC84FC00F8B6D9 /* Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6CE2622EC84FC00F8B6D9 /* Anchor.swift */; };
+		BBA6CE2A22EC84FC00F8B6D9 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6CE2522EC84FB00F8B6D9 /* Layout.swift */; };
+		BBA6CE2B22EC84FC00F8B6D9 /* LayoutEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6CE2422EC84FB00F8B6D9 /* LayoutEnums.swift */; };
+		BBA6CE2E22EC87FE00F8B6D9 /* GinoSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6CE2D22EC87FE00F8B6D9 /* GinoSelector.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +51,11 @@
 		BB32C98B22EC4C43008AE956 /* DressResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DressResultPresenter.swift; sourceTree = "<group>"; };
 		BB32C98D22EC4D2D008AE956 /* GinoDressDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GinoDressDependencyContainer.swift; sourceTree = "<group>"; };
 		BB32C99022EC594C008AE956 /* DressFilterResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DressFilterResult.swift; sourceTree = "<group>"; };
+		BBA6CE2422EC84FB00F8B6D9 /* LayoutEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutEnums.swift; sourceTree = "<group>"; };
+		BBA6CE2522EC84FB00F8B6D9 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
+		BBA6CE2622EC84FC00F8B6D9 /* Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anchor.swift; sourceTree = "<group>"; };
+		BBA6CE2722EC84FC00F8B6D9 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		BBA6CE2D22EC87FE00F8B6D9 /* GinoSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GinoSelector.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +149,7 @@
 		BB32C96022EC39AF008AE956 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				BBA6CE2D22EC87FE00F8B6D9 /* GinoSelector.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -179,6 +190,7 @@
 		BB32C96522EC3AE8008AE956 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				BBA6CE2C22EC850800F8B6D9 /* Layout */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -242,6 +254,17 @@
 				BB32C99022EC594C008AE956 /* DressFilterResult.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BBA6CE2C22EC850800F8B6D9 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				BBA6CE2622EC84FC00F8B6D9 /* Anchor.swift */,
+				BBA6CE2722EC84FC00F8B6D9 /* Helpers.swift */,
+				BBA6CE2522EC84FB00F8B6D9 /* Layout.swift */,
+				BBA6CE2422EC84FB00F8B6D9 /* LayoutEnums.swift */,
+			);
+			path = Layout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,16 +342,21 @@
 				BB32C97322EC44F0008AE956 /* DatabaseManager.swift in Sources */,
 				BB32C97722EC4530008AE956 /* CartManager.swift in Sources */,
 				BB32C97B22EC4A21008AE956 /* CartViewController.swift in Sources */,
+				BBA6CE2B22EC84FC00F8B6D9 /* LayoutEnums.swift in Sources */,
+				BBA6CE2A22EC84FC00F8B6D9 /* Layout.swift in Sources */,
 				BB32C98222EC4BBD008AE956 /* DressFilterViewController.swift in Sources */,
 				BB32C98E22EC4D2D008AE956 /* GinoDressDependencyContainer.swift in Sources */,
 				BB32C99122EC594C008AE956 /* DressFilterResult.swift in Sources */,
 				BB32C96822EC3C1B008AE956 /* GinoAppDependencyContainer.swift in Sources */,
+				BBA6CE2E22EC87FE00F8B6D9 /* GinoSelector.swift in Sources */,
 				BB32C94A22EC2FDE008AE956 /* AppDelegate.swift in Sources */,
 				BB32C98422EC4BD3008AE956 /* DressFilterPresenter.swift in Sources */,
+				BBA6CE2822EC84FC00F8B6D9 /* Helpers.swift in Sources */,
 				BB32C98822EC4C08008AE956 /* SizeCalculatorViewController.swift in Sources */,
 				BB32C97522EC4519008AE956 /* ShopManager.swift in Sources */,
 				BB32C98622EC4BF1008AE956 /* SizeCalculatorPresenter.swift in Sources */,
 				BB32C98A22EC4C33008AE956 /* DressResultViewController.swift in Sources */,
+				BBA6CE2922EC84FC00F8B6D9 /* Anchor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

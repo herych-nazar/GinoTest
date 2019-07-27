@@ -48,6 +48,9 @@ final class DressFilterViewController: UIViewController {
     
     private func configureController() {
         setupViews()
+        
+        view.backgroundColor = .yellow
+        navigationController?.pushViewController(presenter.makeSizeCalculator(), animated: true)
     }
     
     private func setupViews() {
@@ -58,5 +61,11 @@ final class DressFilterViewController: UIViewController {
 
 // MARK: - Layout views
 extension DressFilterViewController {
-    
+    private func setupScrollView() {
+        view.addSubview(scrollView)
+        
+        scrollView.layout {
+            $0.constraint(to: view.safeAreaLayoutGuide, offset: 0)
+        }
+    }
 }

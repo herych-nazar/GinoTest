@@ -6,10 +6,10 @@
 //  Copyright © 2019 Nazar Herych. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol DressFilterPresenter {
-    
+    func makeSizeCalculator() -> UIViewController
 }
 
 final class GinoDressFilterPresenter: DressFilterPresenter {
@@ -22,5 +22,9 @@ final class GinoDressFilterPresenter: DressFilterPresenter {
     
     init(_ container: GinoDressDependencyContainer) {
         dressDependencyContainer = container
+    }
+    
+    func makeSizeCalculator() -> UIViewController {
+        return dressDependencyContainer.makeSizeCalculatorViewController()
     }
 }
