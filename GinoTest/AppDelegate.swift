@@ -21,13 +21,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        
-        window?.rootViewController = appContainer.makeCartViewController()
+        let controllers = [appContainer.makeDressFilterViewController(),
+                           appContainer.makeCartViewController()]
+        window?.rootViewController = self.makeTabBarViewController(controllers)
         window?.makeKeyAndVisible()
         
         return true
     }
+    
+    private func makeTabBarViewController(_ controllers: [UIViewController]) -> UIViewController {
+        let tabBar = UITabBarController()
+        let controllers = controllers.map{ makeNavigationController($0) }
+        tabBar.setViewControllers(controllers, animated: true)
+        
+        return tabBar
+    }
 
+    func makeNavigationController(_ rootViewController: UIViewController) -> UIViewController {
+        let navigation = UINavigationController(rootViewController: rootViewController)
+        navigation.navigationBar.prefersLargeTitles = true
+        
+        return navigation
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
