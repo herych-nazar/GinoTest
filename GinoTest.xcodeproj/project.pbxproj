@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BB32C94A22EC2FDE008AE956 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C94922EC2FDE008AE956 /* AppDelegate.swift */; };
-		BB32C94C22EC2FDE008AE956 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C94B22EC2FDE008AE956 /* ViewController.swift */; };
 		BB32C94F22EC2FDE008AE956 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB32C94D22EC2FDE008AE956 /* Main.storyboard */; };
 		BB32C95122EC2FDF008AE956 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB32C95022EC2FDF008AE956 /* Assets.xcassets */; };
 		BB32C95422EC2FDF008AE956 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB32C95222EC2FDF008AE956 /* LaunchScreen.storyboard */; };
@@ -25,12 +24,12 @@
 		BB32C98A22EC4C33008AE956 /* DressResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C98922EC4C33008AE956 /* DressResultViewController.swift */; };
 		BB32C98C22EC4C43008AE956 /* DressResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C98B22EC4C43008AE956 /* DressResultPresenter.swift */; };
 		BB32C98E22EC4D2D008AE956 /* GinoDressDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C98D22EC4D2D008AE956 /* GinoDressDependencyContainer.swift */; };
+		BB32C99122EC594C008AE956 /* DressFilterResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C99022EC594C008AE956 /* DressFilterResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BB32C94622EC2FDE008AE956 /* GinoTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GinoTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB32C94922EC2FDE008AE956 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BB32C94B22EC2FDE008AE956 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BB32C94E22EC2FDE008AE956 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB32C95022EC2FDF008AE956 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB32C95322EC2FDF008AE956 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -48,6 +47,7 @@
 		BB32C98922EC4C33008AE956 /* DressResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DressResultViewController.swift; sourceTree = "<group>"; };
 		BB32C98B22EC4C43008AE956 /* DressResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DressResultPresenter.swift; sourceTree = "<group>"; };
 		BB32C98D22EC4D2D008AE956 /* GinoDressDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GinoDressDependencyContainer.swift; sourceTree = "<group>"; };
+		BB32C99022EC594C008AE956 /* DressFilterResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DressFilterResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +93,6 @@
 		BB32C95B22EC3914008AE956 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
-				BB32C94B22EC2FDE008AE956 /* ViewController.swift */,
 				BB32C97922EC48B1008AE956 /* DressList */,
 				BB32C97822EC487B008AE956 /* Cart */,
 			);
@@ -123,6 +122,7 @@
 		BB32C95E22EC3961008AE956 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				BB32C98F22EC58D3008AE956 /* Model */,
 				BB32C96222EC3A53008AE956 /* Dependency */,
 				BB32C96322EC3A5F008AE956 /* Manager */,
 				BB32C96422EC3A67008AE956 /* Database */,
@@ -239,6 +239,14 @@
 			path = DressResult;
 			sourceTree = "<group>";
 		};
+		BB32C98F22EC58D3008AE956 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BB32C99022EC594C008AE956 /* DressFilterResult.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -317,7 +325,7 @@
 				BB32C97B22EC4A21008AE956 /* CartViewController.swift in Sources */,
 				BB32C98222EC4BBD008AE956 /* DressFilterViewController.swift in Sources */,
 				BB32C98E22EC4D2D008AE956 /* GinoDressDependencyContainer.swift in Sources */,
-				BB32C94C22EC2FDE008AE956 /* ViewController.swift in Sources */,
+				BB32C99122EC594C008AE956 /* DressFilterResult.swift in Sources */,
 				BB32C96822EC3C1B008AE956 /* GinoAppDependencyContainer.swift in Sources */,
 				BB32C94A22EC2FDE008AE956 /* AppDelegate.swift in Sources */,
 				BB32C98422EC4BD3008AE956 /* DressFilterPresenter.swift in Sources */,

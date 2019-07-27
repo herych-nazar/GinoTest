@@ -14,4 +14,20 @@ protocol DressResultPresenter {
 
 final class GinoDressResultPresenter: DressResultPresenter {
     
+    // MARK: - Properties
+    
+    private let shopManager: ShopManager
+    private let cartManager: CartManager
+    
+    private let filterResult: DressFilterResult
+    
+    // MARK: - Constructor
+    
+    init(result: DressFilterResult,
+         shopManager: ShopManager,
+         cartManager: CartManager) {
+        self.filterResult = result
+        self.shopManager = shopManager
+        self.cartManager = cartManager
+    }
 }

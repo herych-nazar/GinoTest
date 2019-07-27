@@ -23,11 +23,15 @@ final class GinoDressDependencyContainer {
     }
     
     // MARK: - Methods
+    
     func makeSizeCalculatorViewController() -> UIViewController {
         return SizeCalculatorViewController(presenter: GinoSizeCalculatorPresenter())
     }
     
-    func makeDressResultViewController() -> UIViewController {
-        return DressResultViewController(presenter: GinoDressResultPresenter())
+    func makeDressResultViewController(filterResult: DressFilterResult) -> UIViewController {
+        let presenter = GinoDressResultPresenter(result: filterResult,
+                                                 shopManager: sharedShopManager,
+                                                 cartManager: sharedCartManager)
+        return DressResultViewController(presenter: presenter)
     }
 }
