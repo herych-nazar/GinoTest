@@ -12,6 +12,10 @@
 		BB32C94F22EC2FDE008AE956 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB32C94D22EC2FDE008AE956 /* Main.storyboard */; };
 		BB32C95122EC2FDF008AE956 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB32C95022EC2FDF008AE956 /* Assets.xcassets */; };
 		BB32C95422EC2FDF008AE956 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB32C95222EC2FDF008AE956 /* LaunchScreen.storyboard */; };
+		BB32C96D22EC3D62008AE956 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C96922EC3D62008AE956 /* Layout.swift */; };
+		BB32C96E22EC3D62008AE956 /* Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C96A22EC3D62008AE956 /* Anchor.swift */; };
+		BB32C96F22EC3D62008AE956 /* LayoutEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C96B22EC3D62008AE956 /* LayoutEnums.swift */; };
+		BB32C97022EC3D62008AE956 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C96C22EC3D62008AE956 /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		BB32C95022EC2FDF008AE956 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB32C95322EC2FDF008AE956 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB32C95522EC2FDF008AE956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB32C96922EC3D62008AE956 /* Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
+		BB32C96A22EC3D62008AE956 /* Anchor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anchor.swift; sourceTree = "<group>"; };
+		BB32C96B22EC3D62008AE956 /* LayoutEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutEnums.swift; sourceTree = "<group>"; };
+		BB32C96C22EC3D62008AE956 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +157,7 @@
 		BB32C96522EC3AE8008AE956 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				BB32C97122EC3D97008AE956 /* Layout */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -158,6 +167,17 @@
 			children = (
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		BB32C97122EC3D97008AE956 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				BB32C96A22EC3D62008AE956 /* Anchor.swift */,
+				BB32C96C22EC3D62008AE956 /* Helpers.swift */,
+				BB32C96922EC3D62008AE956 /* Layout.swift */,
+				BB32C96B22EC3D62008AE956 /* LayoutEnums.swift */,
+			);
+			path = Layout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,7 +252,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB32C94C22EC2FDE008AE956 /* ViewController.swift in Sources */,
+				BB32C97022EC3D62008AE956 /* Helpers.swift in Sources */,
 				BB32C94A22EC2FDE008AE956 /* AppDelegate.swift in Sources */,
+				BB32C96E22EC3D62008AE956 /* Anchor.swift in Sources */,
+				BB32C96D22EC3D62008AE956 /* Layout.swift in Sources */,
+				BB32C96F22EC3D62008AE956 /* LayoutEnums.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
