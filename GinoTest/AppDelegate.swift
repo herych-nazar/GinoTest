@@ -31,13 +31,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func makeTabBarViewController(_ controllers: [UIViewController]) -> UIViewController {
         let tabBar = UITabBarController()
-        let controllers = controllers.map{ makeNavigationController($0) }
+        let controllers = controllers.map { makeNavigationController($0) }
         tabBar.setViewControllers(controllers, animated: true)
         
         return tabBar
     }
 
-    func makeNavigationController(_ rootViewController: UIViewController) -> UIViewController {
+    private func makeNavigationController(_ rootViewController: UIViewController) -> UIViewController {
         let navigation = UINavigationController(rootViewController: rootViewController)
         navigation.navigationBar.prefersLargeTitles = true
         
