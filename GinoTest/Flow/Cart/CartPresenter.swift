@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+protocol CartPresenter {
+    
+}
+
+final class GinoCartPresenter: CartPresenter {
+    
+}

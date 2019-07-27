@@ -24,6 +24,7 @@
 		BB32C98822EC4C08008AE956 /* SizeCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C98722EC4C08008AE956 /* SizeCalculatorViewController.swift */; };
 		BB32C98A22EC4C33008AE956 /* DressResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C98922EC4C33008AE956 /* DressResultViewController.swift */; };
 		BB32C98C22EC4C43008AE956 /* DressResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C98B22EC4C43008AE956 /* DressResultPresenter.swift */; };
+		BB32C98E22EC4D2D008AE956 /* GinoDressDependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C98D22EC4D2D008AE956 /* GinoDressDependencyManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		BB32C98722EC4C08008AE956 /* SizeCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeCalculatorViewController.swift; sourceTree = "<group>"; };
 		BB32C98922EC4C33008AE956 /* DressResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DressResultViewController.swift; sourceTree = "<group>"; };
 		BB32C98B22EC4C43008AE956 /* DressResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DressResultPresenter.swift; sourceTree = "<group>"; };
+		BB32C98D22EC4D2D008AE956 /* GinoDressDependencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GinoDressDependencyManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				BB32C96722EC3C1B008AE956 /* GinoAppDependencyContainer.swift */,
+				BB32C98D22EC4D2D008AE956 /* GinoDressDependencyManager.swift */,
 			);
 			path = Dependency;
 			sourceTree = "<group>";
@@ -221,8 +224,8 @@
 		BB32C97F22EC4B27008AE956 /* SizeCalculator */ = {
 			isa = PBXGroup;
 			children = (
-				BB32C98522EC4BF1008AE956 /* SizeCalculatorPresenter.swift */,
 				BB32C98722EC4C08008AE956 /* SizeCalculatorViewController.swift */,
+				BB32C98522EC4BF1008AE956 /* SizeCalculatorPresenter.swift */,
 			);
 			path = SizeCalculator;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				BB32C97722EC4530008AE956 /* CartManager.swift in Sources */,
 				BB32C97B22EC4A21008AE956 /* CartViewController.swift in Sources */,
 				BB32C98222EC4BBD008AE956 /* DressFilterViewController.swift in Sources */,
+				BB32C98E22EC4D2D008AE956 /* GinoDressDependencyManager.swift in Sources */,
 				BB32C94C22EC2FDE008AE956 /* ViewController.swift in Sources */,
 				BB32C96822EC3C1B008AE956 /* GinoAppDependencyContainer.swift in Sources */,
 				BB32C94A22EC2FDE008AE956 /* AppDelegate.swift in Sources */,

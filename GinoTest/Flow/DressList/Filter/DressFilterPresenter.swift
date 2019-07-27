@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+protocol DressFilterPresenter {
+    
+}
+
+final class GinoDressFilterPresenter: DressFilterPresenter {
+    
+}

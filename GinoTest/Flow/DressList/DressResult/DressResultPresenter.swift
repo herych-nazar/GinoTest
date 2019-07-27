@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+protocol DressResultPresenter {
+    
+}
+
+final class GinoDressResultPresenter: DressResultPresenter {
+    
+}

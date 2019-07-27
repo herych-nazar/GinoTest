@@ -6,7 +6,7 @@
 //  Copyright © 2019 Nazar Herych. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class GinoAppDependencyContainer {
     
@@ -38,4 +38,11 @@ final class GinoAppDependencyContainer {
     
     // MARK: - Methods
     
+    func makeDressFilterViewController() -> UIViewController {
+        return DressFilterViewController(presenter: GinoDressFilterPresenter())
+    }
+    
+    func makeCartViewController() -> UIViewController {
+        return CartViewController()
+    }
 }
