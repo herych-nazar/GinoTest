@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BB32C94A22EC2FDE008AE956 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C94922EC2FDE008AE956 /* AppDelegate.swift */; };
-		BB32C94F22EC2FDE008AE956 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB32C94D22EC2FDE008AE956 /* Main.storyboard */; };
 		BB32C95122EC2FDF008AE956 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB32C95022EC2FDF008AE956 /* Assets.xcassets */; };
 		BB32C95422EC2FDF008AE956 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB32C95222EC2FDF008AE956 /* LaunchScreen.storyboard */; };
 		BB32C96822EC3C1B008AE956 /* GinoAppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C96722EC3C1B008AE956 /* GinoAppDependencyContainer.swift */; };
@@ -30,7 +29,6 @@
 /* Begin PBXFileReference section */
 		BB32C94622EC2FDE008AE956 /* GinoTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GinoTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB32C94922EC2FDE008AE956 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BB32C94E22EC2FDE008AE956 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB32C95022EC2FDF008AE956 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB32C95322EC2FDF008AE956 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB32C95522EC2FDF008AE956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 		BB32C95C22EC3926008AE956 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				BB32C94D22EC2FDE008AE956 /* Main.storyboard */,
 				BB32C95022EC2FDF008AE956 /* Assets.xcassets */,
 				BB32C95222EC2FDF008AE956 /* LaunchScreen.storyboard */,
 				BB32C95522EC2FDF008AE956 /* Info.plist */,
@@ -307,7 +304,6 @@
 			files = (
 				BB32C95422EC2FDF008AE956 /* LaunchScreen.storyboard in Resources */,
 				BB32C95122EC2FDF008AE956 /* Assets.xcassets in Resources */,
-				BB32C94F22EC2FDE008AE956 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,14 +335,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		BB32C94D22EC2FDE008AE956 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BB32C94E22EC2FDE008AE956 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BB32C95222EC2FDF008AE956 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

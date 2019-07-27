@@ -14,6 +14,17 @@ final class DressFilterViewController: UIViewController {
     
     private let presenter: DressFilterPresenter
     
+    // MARK: - Views
+    
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.alwaysBounceVertical = true
+        
+        return scrollView
+    }()
+    
+    
+    
     // MARK: - Constructor
     
     init(presenter: DressFilterPresenter) {
@@ -29,9 +40,23 @@ final class DressFilterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        configureController()
     }
     
+    // MARK: - Methods
     
+    private func configureController() {
+        setupViews()
+    }
+    
+    private func setupViews() {
+        
+    }
 
+}
+
+// MARK: - Layout views
+extension DressFilterViewController {
+    
 }
