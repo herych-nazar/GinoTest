@@ -12,6 +12,10 @@
 		BB32C94F22EC2FDE008AE956 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB32C94D22EC2FDE008AE956 /* Main.storyboard */; };
 		BB32C95122EC2FDF008AE956 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB32C95022EC2FDF008AE956 /* Assets.xcassets */; };
 		BB32C95422EC2FDF008AE956 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB32C95222EC2FDF008AE956 /* LaunchScreen.storyboard */; };
+		BB32C96822EC3C1B008AE956 /* GinoAppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C96722EC3C1B008AE956 /* GinoAppDependencyContainer.swift */; };
+		BB32C97322EC44F0008AE956 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C97222EC44F0008AE956 /* DatabaseManager.swift */; };
+		BB32C97522EC4519008AE956 /* ShopManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C97422EC4519008AE956 /* ShopManager.swift */; };
+		BB32C97722EC4530008AE956 /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C97622EC4530008AE956 /* CartManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		BB32C95022EC2FDF008AE956 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB32C95322EC2FDF008AE956 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB32C95522EC2FDF008AE956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB32C96722EC3C1B008AE956 /* GinoAppDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GinoAppDependencyContainer.swift; sourceTree = "<group>"; };
+		BB32C97222EC44F0008AE956 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		BB32C97422EC4519008AE956 /* ShopManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopManager.swift; sourceTree = "<group>"; };
+		BB32C97622EC4530008AE956 /* CartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,9 +103,9 @@
 		BB32C95E22EC3961008AE956 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				BB32C96422EC3A67008AE956 /* Database */,
-				BB32C96322EC3A5F008AE956 /* Manager */,
 				BB32C96222EC3A53008AE956 /* Dependency */,
+				BB32C96322EC3A5F008AE956 /* Manager */,
+				BB32C96422EC3A67008AE956 /* Database */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -128,6 +136,7 @@
 		BB32C96222EC3A53008AE956 /* Dependency */ = {
 			isa = PBXGroup;
 			children = (
+				BB32C96722EC3C1B008AE956 /* GinoAppDependencyContainer.swift */,
 			);
 			path = Dependency;
 			sourceTree = "<group>";
@@ -135,6 +144,9 @@
 		BB32C96322EC3A5F008AE956 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				BB32C97222EC44F0008AE956 /* DatabaseManager.swift */,
+				BB32C97422EC4519008AE956 /* ShopManager.swift */,
+				BB32C97622EC4530008AE956 /* CartManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -231,8 +243,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB32C97322EC44F0008AE956 /* DatabaseManager.swift in Sources */,
+				BB32C97722EC4530008AE956 /* CartManager.swift in Sources */,
 				BB32C94C22EC2FDE008AE956 /* ViewController.swift in Sources */,
+				BB32C96822EC3C1B008AE956 /* GinoAppDependencyContainer.swift in Sources */,
 				BB32C94A22EC2FDE008AE956 /* AppDelegate.swift in Sources */,
+				BB32C97522EC4519008AE956 /* ShopManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
