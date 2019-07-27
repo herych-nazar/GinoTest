@@ -1,5 +1,5 @@
 //
-//  GinoDressDependencyManager.swift
+//  GinoDressDependencyContainer.swift
 //  GinoTest
 //
 //  Created by Nazar Herych on 7/27/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class GinoDressDependencyManager {
+final class GinoDressDependencyContainer {
     
     // MARK: - Properties
     

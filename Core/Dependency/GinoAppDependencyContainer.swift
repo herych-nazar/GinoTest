@@ -39,10 +39,11 @@ final class GinoAppDependencyContainer {
     // MARK: - Methods
     
     func makeDressFilterViewController() -> UIViewController {
-        return DressFilterViewController(presenter: GinoDressFilterPresenter())
+        let container = GinoDressDependencyContainer(appContainer: self)
+        return DressFilterViewController(presenter: GinoDressFilterPresenter(container))
     }
     
     func makeCartViewController() -> UIViewController {
-        return CartViewController()
+        return CartViewController(presenter: GinoCartPresenter(sharedCartManager))
     }
 }

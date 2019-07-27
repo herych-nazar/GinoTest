@@ -14,4 +14,13 @@ protocol DressFilterPresenter {
 
 final class GinoDressFilterPresenter: DressFilterPresenter {
     
+    // MARK: - Properties
+    
+    private let dressDependencyContainer: GinoDressDependencyContainer
+    
+    // MARK: - Constructor
+    
+    init(_ container: GinoDressDependencyContainer) {
+        dressDependencyContainer = container
+    }
 }

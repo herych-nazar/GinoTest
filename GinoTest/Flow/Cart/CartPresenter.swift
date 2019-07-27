@@ -14,4 +14,14 @@ protocol CartPresenter {
 
 final class GinoCartPresenter: CartPresenter {
     
+    // MARK: - Properties
+    
+    private let cartManager: CartManager
+    
+    // MARK: - Constructor
+    
+    init(_ cartManager: CartManager) {
+        self.cartManager = cartManager
+    }
+    
 }
