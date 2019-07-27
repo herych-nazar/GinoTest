@@ -40,6 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func makeNavigationController(_ rootViewController: UIViewController) -> UIViewController {
         let navigation = UINavigationController(rootViewController: rootViewController)
         navigation.navigationBar.prefersLargeTitles = true
+        navigation.navigationBar.shadowImage = UIImage()
+        navigation.navigationBar.setBackgroundImage(UIImage(), for: .default)
         
         return navigation
     }
