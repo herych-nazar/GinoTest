@@ -8,28 +8,46 @@
 
 /* Begin PBXBuildFile section */
 		BB32C94A22EC2FDE008AE956 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C94922EC2FDE008AE956 /* AppDelegate.swift */; };
-		BB32C94C22EC2FDE008AE956 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C94B22EC2FDE008AE956 /* ViewController.swift */; };
 		BB32C94F22EC2FDE008AE956 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB32C94D22EC2FDE008AE956 /* Main.storyboard */; };
 		BB32C95122EC2FDF008AE956 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB32C95022EC2FDF008AE956 /* Assets.xcassets */; };
 		BB32C95422EC2FDF008AE956 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB32C95222EC2FDF008AE956 /* LaunchScreen.storyboard */; };
-		BB32C96D22EC3D62008AE956 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C96922EC3D62008AE956 /* Layout.swift */; };
-		BB32C96E22EC3D62008AE956 /* Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C96A22EC3D62008AE956 /* Anchor.swift */; };
-		BB32C96F22EC3D62008AE956 /* LayoutEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C96B22EC3D62008AE956 /* LayoutEnums.swift */; };
-		BB32C97022EC3D62008AE956 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C96C22EC3D62008AE956 /* Helpers.swift */; };
+		BB32C96822EC3C1B008AE956 /* GinoAppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C96722EC3C1B008AE956 /* GinoAppDependencyContainer.swift */; };
+		BB32C97322EC44F0008AE956 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C97222EC44F0008AE956 /* DatabaseManager.swift */; };
+		BB32C97522EC4519008AE956 /* ShopManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C97422EC4519008AE956 /* ShopManager.swift */; };
+		BB32C97722EC4530008AE956 /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C97622EC4530008AE956 /* CartManager.swift */; };
+		BB32C97B22EC4A21008AE956 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C97A22EC4A21008AE956 /* CartViewController.swift */; };
+		BB32C97D22EC4A35008AE956 /* CartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C97C22EC4A35008AE956 /* CartPresenter.swift */; };
+		BB32C98222EC4BBD008AE956 /* DressFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C98122EC4BBD008AE956 /* DressFilterViewController.swift */; };
+		BB32C98422EC4BD3008AE956 /* DressFilterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C98322EC4BD3008AE956 /* DressFilterPresenter.swift */; };
+		BB32C98622EC4BF1008AE956 /* SizeCalculatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C98522EC4BF1008AE956 /* SizeCalculatorPresenter.swift */; };
+		BB32C98822EC4C08008AE956 /* SizeCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C98722EC4C08008AE956 /* SizeCalculatorViewController.swift */; };
+		BB32C98A22EC4C33008AE956 /* DressResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C98922EC4C33008AE956 /* DressResultViewController.swift */; };
+		BB32C98C22EC4C43008AE956 /* DressResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C98B22EC4C43008AE956 /* DressResultPresenter.swift */; };
+		BB32C98E22EC4D2D008AE956 /* GinoDressDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C98D22EC4D2D008AE956 /* GinoDressDependencyContainer.swift */; };
+		BB32C99122EC594C008AE956 /* DressFilterResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C99022EC594C008AE956 /* DressFilterResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BB32C94622EC2FDE008AE956 /* GinoTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GinoTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB32C94922EC2FDE008AE956 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BB32C94B22EC2FDE008AE956 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BB32C94E22EC2FDE008AE956 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB32C95022EC2FDF008AE956 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB32C95322EC2FDF008AE956 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB32C95522EC2FDF008AE956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BB32C96922EC3D62008AE956 /* Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
-		BB32C96A22EC3D62008AE956 /* Anchor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anchor.swift; sourceTree = "<group>"; };
-		BB32C96B22EC3D62008AE956 /* LayoutEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutEnums.swift; sourceTree = "<group>"; };
-		BB32C96C22EC3D62008AE956 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		BB32C96722EC3C1B008AE956 /* GinoAppDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GinoAppDependencyContainer.swift; sourceTree = "<group>"; };
+		BB32C97222EC44F0008AE956 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		BB32C97422EC4519008AE956 /* ShopManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopManager.swift; sourceTree = "<group>"; };
+		BB32C97622EC4530008AE956 /* CartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
+		BB32C97A22EC4A21008AE956 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		BB32C97C22EC4A35008AE956 /* CartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartPresenter.swift; sourceTree = "<group>"; };
+		BB32C98122EC4BBD008AE956 /* DressFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DressFilterViewController.swift; sourceTree = "<group>"; };
+		BB32C98322EC4BD3008AE956 /* DressFilterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DressFilterPresenter.swift; sourceTree = "<group>"; };
+		BB32C98522EC4BF1008AE956 /* SizeCalculatorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeCalculatorPresenter.swift; sourceTree = "<group>"; };
+		BB32C98722EC4C08008AE956 /* SizeCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeCalculatorViewController.swift; sourceTree = "<group>"; };
+		BB32C98922EC4C33008AE956 /* DressResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DressResultViewController.swift; sourceTree = "<group>"; };
+		BB32C98B22EC4C43008AE956 /* DressResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DressResultPresenter.swift; sourceTree = "<group>"; };
+		BB32C98D22EC4D2D008AE956 /* GinoDressDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GinoDressDependencyContainer.swift; sourceTree = "<group>"; };
+		BB32C99022EC594C008AE956 /* DressFilterResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DressFilterResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +93,8 @@
 		BB32C95B22EC3914008AE956 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
-				BB32C94B22EC2FDE008AE956 /* ViewController.swift */,
+				BB32C97922EC48B1008AE956 /* DressList */,
+				BB32C97822EC487B008AE956 /* Cart */,
 			);
 			path = Flow;
 			sourceTree = "<group>";
@@ -103,9 +122,10 @@
 		BB32C95E22EC3961008AE956 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				BB32C96422EC3A67008AE956 /* Database */,
-				BB32C96322EC3A5F008AE956 /* Manager */,
+				BB32C98F22EC58D3008AE956 /* Model */,
 				BB32C96222EC3A53008AE956 /* Dependency */,
+				BB32C96322EC3A5F008AE956 /* Manager */,
+				BB32C96422EC3A67008AE956 /* Database */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -136,6 +156,8 @@
 		BB32C96222EC3A53008AE956 /* Dependency */ = {
 			isa = PBXGroup;
 			children = (
+				BB32C96722EC3C1B008AE956 /* GinoAppDependencyContainer.swift */,
+				BB32C98D22EC4D2D008AE956 /* GinoDressDependencyContainer.swift */,
 			);
 			path = Dependency;
 			sourceTree = "<group>";
@@ -143,6 +165,9 @@
 		BB32C96322EC3A5F008AE956 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				BB32C97222EC44F0008AE956 /* DatabaseManager.swift */,
+				BB32C97422EC4519008AE956 /* ShopManager.swift */,
+				BB32C97622EC4530008AE956 /* CartManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -157,7 +182,6 @@
 		BB32C96522EC3AE8008AE956 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				BB32C97122EC3D97008AE956 /* Layout */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -169,15 +193,58 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		BB32C97122EC3D97008AE956 /* Layout */ = {
+		BB32C97822EC487B008AE956 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
-				BB32C96A22EC3D62008AE956 /* Anchor.swift */,
-				BB32C96C22EC3D62008AE956 /* Helpers.swift */,
-				BB32C96922EC3D62008AE956 /* Layout.swift */,
-				BB32C96B22EC3D62008AE956 /* LayoutEnums.swift */,
+				BB32C97A22EC4A21008AE956 /* CartViewController.swift */,
+				BB32C97C22EC4A35008AE956 /* CartPresenter.swift */,
 			);
-			path = Layout;
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		BB32C97922EC48B1008AE956 /* DressList */ = {
+			isa = PBXGroup;
+			children = (
+				BB32C97E22EC4B18008AE956 /* Filter */,
+				BB32C97F22EC4B27008AE956 /* SizeCalculator */,
+				BB32C98022EC4B5F008AE956 /* DressResult */,
+			);
+			path = DressList;
+			sourceTree = "<group>";
+		};
+		BB32C97E22EC4B18008AE956 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				BB32C98122EC4BBD008AE956 /* DressFilterViewController.swift */,
+				BB32C98322EC4BD3008AE956 /* DressFilterPresenter.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		BB32C97F22EC4B27008AE956 /* SizeCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				BB32C98722EC4C08008AE956 /* SizeCalculatorViewController.swift */,
+				BB32C98522EC4BF1008AE956 /* SizeCalculatorPresenter.swift */,
+			);
+			path = SizeCalculator;
+			sourceTree = "<group>";
+		};
+		BB32C98022EC4B5F008AE956 /* DressResult */ = {
+			isa = PBXGroup;
+			children = (
+				BB32C98922EC4C33008AE956 /* DressResultViewController.swift */,
+				BB32C98B22EC4C43008AE956 /* DressResultPresenter.swift */,
+			);
+			path = DressResult;
+			sourceTree = "<group>";
+		};
+		BB32C98F22EC58D3008AE956 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BB32C99022EC594C008AE956 /* DressFilterResult.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,12 +318,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB32C94C22EC2FDE008AE956 /* ViewController.swift in Sources */,
-				BB32C97022EC3D62008AE956 /* Helpers.swift in Sources */,
+				BB32C97D22EC4A35008AE956 /* CartPresenter.swift in Sources */,
+				BB32C98C22EC4C43008AE956 /* DressResultPresenter.swift in Sources */,
+				BB32C97322EC44F0008AE956 /* DatabaseManager.swift in Sources */,
+				BB32C97722EC4530008AE956 /* CartManager.swift in Sources */,
+				BB32C97B22EC4A21008AE956 /* CartViewController.swift in Sources */,
+				BB32C98222EC4BBD008AE956 /* DressFilterViewController.swift in Sources */,
+				BB32C98E22EC4D2D008AE956 /* GinoDressDependencyContainer.swift in Sources */,
+				BB32C99122EC594C008AE956 /* DressFilterResult.swift in Sources */,
+				BB32C96822EC3C1B008AE956 /* GinoAppDependencyContainer.swift in Sources */,
 				BB32C94A22EC2FDE008AE956 /* AppDelegate.swift in Sources */,
-				BB32C96E22EC3D62008AE956 /* Anchor.swift in Sources */,
-				BB32C96D22EC3D62008AE956 /* Layout.swift in Sources */,
-				BB32C96F22EC3D62008AE956 /* LayoutEnums.swift in Sources */,
+				BB32C98422EC4BD3008AE956 /* DressFilterPresenter.swift in Sources */,
+				BB32C98822EC4C08008AE956 /* SizeCalculatorViewController.swift in Sources */,
+				BB32C97522EC4519008AE956 /* ShopManager.swift in Sources */,
+				BB32C98622EC4BF1008AE956 /* SizeCalculatorPresenter.swift in Sources */,
+				BB32C98A22EC4C33008AE956 /* DressResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
