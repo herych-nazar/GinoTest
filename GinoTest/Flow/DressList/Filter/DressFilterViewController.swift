@@ -23,7 +23,50 @@ final class DressFilterViewController: UIViewController {
         return scrollView
     }()
     
+    private lazy var colorPicker: GinoTextPicker = {
+        let selector = GinoTextPicker()
+        selector.title = "Color"
+        
+        return selector
+    }()
     
+    private lazy var collectionPicker: GinoTextPicker = {
+        let selector = GinoTextPicker()
+        selector.title = "Colection"
+        
+        return selector
+    }()
+    
+    private lazy var sizePicker: GinoTextPicker = {
+        let selector = GinoTextPicker()
+        selector.title = "Size"
+        
+        return selector
+    }()
+    
+    private lazy var applyButton: UIButton = {
+        let button = UIButton()
+        button.titleLabel?.font = UIFont(name: "AvenirNext-Medium", size: 18)
+        button.setTitle("Apply", for: .normal)
+        //        button.backgroundColor = GinoColor.green
+        
+        button.layer.cornerRadius = 5
+        button.layer.masksToBounds = true
+        
+        return button
+    }()
+    
+    private lazy var whatSizeButton: UIButton = {
+        let button = UIButton()
+        button.titleLabel?.font = UIFont(name: "AvenirNext-Medium", size: 18)
+        button.setTitle("WHATS MY SIZE?", for: .normal)
+        //        button.backgroundColor = GinoColor.green
+        
+        button.layer.cornerRadius = 5
+        button.layer.masksToBounds = true
+        
+        return button
+    }()
     
     // MARK: - Constructor
     
@@ -44,6 +87,12 @@ final class DressFilterViewController: UIViewController {
         configureController()
     }
     
+    // MARK: - Action
+    
+    @objc private func donePicker() {
+        colorPicker.resignFirstResponder()
+    }
+    
     // MARK: - Methods
     
     private func configureController() {
@@ -54,7 +103,12 @@ final class DressFilterViewController: UIViewController {
     }
     
     private func setupViews() {
-        
+        setupScrollView()
+        setupColorPicker()
+        setupCollectionPicker()
+        setupSizePicker()
+        setupApplyButton()
+        setupWhatSizeButton()
     }
 
 }
@@ -66,6 +120,56 @@ extension DressFilterViewController {
         
         scrollView.layout {
             $0.constraint(to: view.safeAreaLayoutGuide, offset: 0)
+        }
+    }
+    
+    private func setupColorPicker() {
+        view.addSubview(colorPicker)
+        
+        colorPicker.layout {
+            $0.top.constraint(to: scrollView, by: .top(20))
+            $0.constraint(to: view, by: .leading(20), .trailing(-20))
+        }
+    }
+    
+    private func setupCollectionPicker() {
+        view.addSubview(collectionPicker)
+        
+        collectionPicker.layout {
+            $0.top.constraint(to: colorPicker, by: .bottom(20))
+            $0.constraint(to: view, by: .leading(20), .trailing(-20))
+        }
+    }
+    
+    private func setupSizePicker() {
+        view.addSubview(sizePicker)
+        
+        sizePicker.layout {
+            $0.top.constraint(to: collectionPicker, by: .bottom(20))
+            $0.constraint(to: view, by: .leading(20), .trailing(-20))
+        }
+    }
+    
+    
+    
+    private func setupApplyButton() {
+        scrollView.addSubview(applyButton)
+        
+        applyButton.layout {
+            $0.size(.height(50))
+            $0.top.constraint(to: sizePicker, by: .bottom(30))
+            $0.constraint(to: view, by: .leading(40), .trailing(-40))
+        }
+    }
+    
+    private func setupWhatSizeButton() {
+        scrollView.addSubview(whatSizeButton)
+        
+        whatSizeButton.layout {
+            $0.size(.height(80))
+            $0.top.constraint(to: applyButton, by: .bottom(50))
+            $0.constraint(to: view, by: .leading(40), .trailing(-40))
+            $0.bottom.constraint(to: scrollView, by: .bottom(0))
         }
     }
 }
