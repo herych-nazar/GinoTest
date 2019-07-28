@@ -85,7 +85,7 @@ final class CartViewController: UIViewController {
     }
     
     private func configureCollectionView() {
-        collectionView.register(DressResultCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(ShoppingCartCell.self, forCellWithReuseIdentifier: cellId)
     }
     
     private func setupViews() {
@@ -93,7 +93,6 @@ final class CartViewController: UIViewController {
         setupTotalLabel()
         setupCollectionView()
     }
-
 }
 
 // MARK: - UICollectionViewDataSource
@@ -105,7 +104,7 @@ extension CartViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
         
-        if let dressCell = cell as? DressResultCellInterface {
+        if let dressCell = cell as? ShoppingCartCellInterface {
             dressCell.setDress(DressModel(availability: .inStock, image: UIImage(named: "dress3")!, price: 1257.99, allColors: [.red, .black, .blue], description: "6219M - Sequinned Fabric"))
         }
         
@@ -118,11 +117,22 @@ extension CartViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width * 0.9, height: 480)
+        return CGSize(width: collectionView.frame.width * 0.9, height: 190)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 30
+    }
+}
+
+// MARK: - ShoppingCartDelegate
+extension CartViewController: ShoppingCartDelegate {
+    func shoppingCart(_ shoppingCart: ShoppingCartCellInterface, didChangeCount order: Int) {
+        
+    }
+    
+    func didRemoveCartEntity(_ shoppingCart: ShoppingCartCellInterface) {
+        
     }
 }
 
@@ -133,7 +143,7 @@ extension CartViewController {
         
         collectionView.layout {
             $0.constraint(to: view.safeAreaLayoutGuide, by: .leading(0),.top(0), .trailing(0))
-            $0.bottom.constraint(to: totalLabel, by: .top(-20))
+            $0.bottom.constraint(to: totalLabel, by: .top(-10))
         }
     }
     
@@ -142,7 +152,7 @@ extension CartViewController {
         
         totalLabel.layout {
             $0.constraint(to: view, by: .leading(20), .trailing(-20))
-            $0.bottom.constraint(to: checkoutButton, by: .top(-20))
+            $0.bottom.constraint(to: checkoutButton, by: .top(-10))
         }
     }
     
@@ -151,7 +161,7 @@ extension CartViewController {
         
         checkoutButton.layout {
             $0.size(.height(50))
-            $0.constraint(to: view.safeAreaLayoutGuide, by: .bottom(-30), .leading(50), .trailing(-50))
+            $0.constraint(to: view.safeAreaLayoutGuide, by: .bottom(-20), .leading(50), .trailing(-50))
         }
     }
 }
