@@ -50,7 +50,7 @@ final class DressFilterViewController: UIViewController {
         setupViews()
         
         view.backgroundColor = .yellow
-        navigationController?.pushViewController(presenter.makeSizeCalculator(), animated: true)
+        navigationController?.pushViewController(presenter.makeDressResult(dressResult: DressFilterResult()), animated: true)
     }
     
     private func setupViews() {

@@ -10,6 +10,7 @@ import UIKit
 
 protocol DressFilterPresenter {
     func makeSizeCalculator() -> UIViewController
+    func makeDressResult(dressResult: DressFilterResult) -> UIViewController
 }
 
 final class GinoDressFilterPresenter: DressFilterPresenter {
@@ -26,5 +27,9 @@ final class GinoDressFilterPresenter: DressFilterPresenter {
     
     func makeSizeCalculator() -> UIViewController {
         return dressDependencyContainer.makeSizeCalculatorViewController()
+    }
+    
+    func makeDressResult(dressResult: DressFilterResult) -> UIViewController {
+        return dressDependencyContainer.makeDressResultViewController(filterResult: dressResult)
     }
 }
