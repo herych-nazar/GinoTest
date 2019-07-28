@@ -9,13 +9,20 @@
 import UIKit
 
 protocol DressResultCellInterface: class {
+    var delegate: DressResultCellDelegate? { get set }
+    
     func setDress(_ dress: Dress?)
+}
+
+protocol DressResultCellDelegate: class {
+    func dress(didAddedToCart dress: Dress)
 }
 
 final class DressResultCell: UICollectionViewCell, DressResultCellInterface {
     
     // MARK: - Properties
     
+    weak var delegate: DressResultCellDelegate?
     private var dress: Dress?
     
     // MARK: - Views
@@ -63,6 +70,7 @@ final class DressResultCell: UICollectionViewCell, DressResultCellInterface {
     private lazy var cartButton: UIButton = {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "cart"), for: .normal)
+        button.addTarget(self, action: #selector(addToCart(_:)), for: .touchUpInside)
         
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1).cgColor
@@ -93,6 +101,13 @@ final class DressResultCell: UICollectionViewCell, DressResultCellInterface {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         configureCell()
+    }
+    
+    // MARK: - Action
+    
+    @objc private func addToCart(_ sender: UIButton) {
+        guard let dress = dress else { return }
+        delegate?.dress(didAddedToCart: dress)
     }
     
     // MARK: - Methods

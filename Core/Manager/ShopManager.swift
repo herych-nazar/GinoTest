@@ -10,7 +10,7 @@ import UIKit
 
 protocol ShopManager: ShopBuyable {
     func loadDresses(_ dressFilter: DressFilterResult) -> [DressObject]
-    func loadSizes() -> SizeObject
+    func loadSizes() -> [SizeObject]
 }
 
 protocol ShopBuyable {
@@ -50,7 +50,7 @@ final class GinoShopManager: ShopManager {
             .filter { $0.storage.hasElementWith(dressFilter.color, size: dressFilter.size) }
     }
     
-    func loadSizes() -> SizeObject {
+    func loadSizes() -> [SizeObject] {
         return databaseManager.loadSizes()
     }
 }

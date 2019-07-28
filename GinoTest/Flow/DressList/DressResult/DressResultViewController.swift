@@ -81,6 +81,7 @@ extension DressResultViewController: UICollectionViewDataSource {
         
         if let dressCell = cell as? DressResultCellInterface {
             dressCell.setDress(presenter.dressResultAt(indexPath))
+            dressCell.delegate = presenter
         }        
         
         return cell

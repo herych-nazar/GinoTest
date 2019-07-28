@@ -9,18 +9,33 @@
 import Foundation
 
 protocol CartManager {
+    var delegate: CartManagerDelegate? { get set }
     
+    func addDress(_ dress: Dress)
+}
+
+protocol CartManagerDelegate: class {
+    func shouldUpdate()
 }
 
 final class GinoCartManager: CartManager {
     
     // MARK: - Properties
     
+    weak var delegate: CartManagerDelegate?
+    
     private let shop: ShopBuyable
+    private var dresses = [Dress]()
     
     // MARK: - Constructor
     
     init(_ shop: ShopBuyable) {
         self.shop = shop
+    }
+    
+    // MARK: - Methods
+    
+    func addDress(_ dress: Dress) {
+        dresses.append(dress)
     }
 }

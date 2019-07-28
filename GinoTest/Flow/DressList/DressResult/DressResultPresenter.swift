@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol DressResultPresenter {
+protocol DressResultPresenter: DressResultCellDelegate {
     func numberOfResults() -> Int
     func dressResultAt(_ indexPath: IndexPath) -> Dress?
 }
@@ -46,5 +46,12 @@ final class GinoDressResultPresenter: DressResultPresenter {
     
     func dressResultAt(_ indexPath: IndexPath) -> Dress? {
         return data[indexPath.item].toDress(filterResult)
+    }
+}
+
+// MARK: - DressResultCellDelegate
+extension GinoDressResultPresenter: DressResultCellDelegate {
+    func dress(didAddedToCart dress: Dress) {
+        cartManager.addDress(dress)
     }
 }
