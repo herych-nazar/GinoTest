@@ -24,6 +24,10 @@
 		BB32C98C22EC4C43008AE956 /* DressResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C98B22EC4C43008AE956 /* DressResultPresenter.swift */; };
 		BB32C98E22EC4D2D008AE956 /* GinoDressDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C98D22EC4D2D008AE956 /* GinoDressDependencyContainer.swift */; };
 		BB32C99122EC594C008AE956 /* DressFilterResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C99022EC594C008AE956 /* DressFilterResult.swift */; };
+		BB6D6E6A22EDB052007F4A05 /* DressResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6D6E6922EDB052007F4A05 /* DressResultCell.swift */; };
+		BB6D6E6C22EDB098007F4A05 /* Dress.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6D6E6B22EDB098007F4A05 /* Dress.swift */; };
+		BB6D6E6E22EDB0BA007F4A05 /* Availability.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6D6E6D22EDB0BA007F4A05 /* Availability.swift */; };
+		BB6D6E7022EDB144007F4A05 /* ColorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6D6E6F22EDB144007F4A05 /* ColorsView.swift */; };
 		BBA6CE2822EC84FC00F8B6D9 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6CE2722EC84FC00F8B6D9 /* Helpers.swift */; };
 		BBA6CE2922EC84FC00F8B6D9 /* Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6CE2622EC84FC00F8B6D9 /* Anchor.swift */; };
 		BBA6CE2A22EC84FC00F8B6D9 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6CE2522EC84FB00F8B6D9 /* Layout.swift */; };
@@ -53,6 +57,10 @@
 		BB32C98B22EC4C43008AE956 /* DressResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DressResultPresenter.swift; sourceTree = "<group>"; };
 		BB32C98D22EC4D2D008AE956 /* GinoDressDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GinoDressDependencyContainer.swift; sourceTree = "<group>"; };
 		BB32C99022EC594C008AE956 /* DressFilterResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DressFilterResult.swift; sourceTree = "<group>"; };
+		BB6D6E6922EDB052007F4A05 /* DressResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DressResultCell.swift; sourceTree = "<group>"; };
+		BB6D6E6B22EDB098007F4A05 /* Dress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dress.swift; sourceTree = "<group>"; };
+		BB6D6E6D22EDB0BA007F4A05 /* Availability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Availability.swift; sourceTree = "<group>"; };
+		BB6D6E6F22EDB144007F4A05 /* ColorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsView.swift; sourceTree = "<group>"; };
 		BBA6CE2422EC84FB00F8B6D9 /* LayoutEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutEnums.swift; sourceTree = "<group>"; };
 		BBA6CE2522EC84FB00F8B6D9 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		BBA6CE2622EC84FC00F8B6D9 /* Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anchor.swift; sourceTree = "<group>"; };
@@ -154,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				BBA6CE2D22EC87FE00F8B6D9 /* GinoTextField.swift */,
+				BB6D6E6F22EDB144007F4A05 /* ColorsView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -161,6 +170,7 @@
 		BB32C96122EC39B8008AE956 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
+				BB6D6E6922EDB052007F4A05 /* DressResultCell.swift */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -257,6 +267,8 @@
 			isa = PBXGroup;
 			children = (
 				BB32C99022EC594C008AE956 /* DressFilterResult.swift */,
+				BB6D6E6B22EDB098007F4A05 /* Dress.swift */,
+				BB6D6E6D22EDB0BA007F4A05 /* Availability.swift */,
 				BBA6CE3122ECD9C800F8B6D9 /* SizeResult.swift */,
 			);
 			path = Model;
@@ -346,8 +358,10 @@
 				BB32C97D22EC4A35008AE956 /* CartPresenter.swift in Sources */,
 				BB32C98C22EC4C43008AE956 /* DressResultPresenter.swift in Sources */,
 				BB32C97322EC44F0008AE956 /* DatabaseManager.swift in Sources */,
+				BB6D6E6E22EDB0BA007F4A05 /* Availability.swift in Sources */,
 				BBA6CE3222ECD9C800F8B6D9 /* SizeResult.swift in Sources */,
 				BB32C97722EC4530008AE956 /* CartManager.swift in Sources */,
+				BB6D6E6A22EDB052007F4A05 /* DressResultCell.swift in Sources */,
 				BB32C97B22EC4A21008AE956 /* CartViewController.swift in Sources */,
 				BBA6CE2B22EC84FC00F8B6D9 /* LayoutEnums.swift in Sources */,
 				BBA6CE2A22EC84FC00F8B6D9 /* Layout.swift in Sources */,
@@ -365,6 +379,8 @@
 				BB32C98622EC4BF1008AE956 /* SizeCalculatorPresenter.swift in Sources */,
 				BB32C98A22EC4C33008AE956 /* DressResultViewController.swift in Sources */,
 				BBA6CE2922EC84FC00F8B6D9 /* Anchor.swift in Sources */,
+				BB6D6E7022EDB144007F4A05 /* ColorsView.swift in Sources */,
+				BB6D6E6C22EDB098007F4A05 /* Dress.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

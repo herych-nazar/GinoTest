@@ -13,6 +13,7 @@ final class DressResultViewController: UIViewController {
     // MARK: Properties
     
     private let presenter: DressResultPresenter
+    private let cellId = "DressSearchCell"
     
     // MARK: - Views
     
@@ -21,7 +22,9 @@ final class DressResultViewController: UIViewController {
         layout.scrollDirection = .vertical
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .green
+        collectionView.backgroundColor = .clear
+        collectionView.dataSource = self
+        collectionView.delegate = self
         
         return collectionView
     }()
@@ -49,6 +52,7 @@ final class DressResultViewController: UIViewController {
     
     private func configureController() {
         configureAppearance()
+        configureCollectionView()
         setupViews()
     }
     
@@ -57,8 +61,42 @@ final class DressResultViewController: UIViewController {
         view.backgroundColor = GinoColor.backgroung
     }
     
+    private func configureCollectionView() {
+        collectionView.register(DressResultCell.self, forCellWithReuseIdentifier: cellId)
+    }
+    
     private func setupViews() {
         setupCollectionView()
+    }
+}
+
+// MARK: - UICollectionViewDataSource
+extension DressResultViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        
+        if let dressCell = cell as? DressResultCellInterface {
+            dressCell.setDress(DressModel(availability: .inStock, image: UIImage(named: "dress3")!, price: 1257.99, allColors: [.red, .black, .blue], description: "6219M - Sequinned Fabric"))
+        }        
+        
+        return cell
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension DressResultViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width * 0.9, height: 480)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 30
     }
 }
 
