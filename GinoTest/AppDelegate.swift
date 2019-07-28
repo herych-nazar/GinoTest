@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabBar = UITabBarController()
         let controllers = controllers.map { makeNavigationController($0) }
         tabBar.setViewControllers(controllers, animated: true)
+        tabBar.view.tintColor = GinoColor.green
         
         return tabBar
     }

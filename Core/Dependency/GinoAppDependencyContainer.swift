@@ -40,10 +40,15 @@ final class GinoAppDependencyContainer {
     
     func makeDressFilterViewController() -> UIViewController {
         let container = GinoDressDependencyContainer(appContainer: self)
-        return DressFilterViewController(presenter: GinoDressFilterPresenter(container))
+        let controller = DressFilterViewController(presenter: GinoDressFilterPresenter(container))
+        controller.tabBarItem = UITabBarItem(title: "Filter dress", image: GinoIcon.dressFilter.image, tag: 1)
+        
+        return controller
     }
     
     func makeCartViewController() -> UIViewController {
-        return CartViewController(presenter: GinoCartPresenter(sharedCartManager))
+        let controller = CartViewController(presenter: GinoCartPresenter(sharedCartManager))
+        controller.tabBarItem = UITabBarItem(title: "Shopping cart", image: GinoIcon.shopCart.image, tag: 1)
+        return controller
     }
 }

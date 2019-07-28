@@ -13,6 +13,9 @@ enum GinoIcon: String {
     case plus
     case delete
     
+    case shopCart
+    case dressFilter
+    
     var image: UIImage? {
         return UIImage(named: self.rawValue)
     }
