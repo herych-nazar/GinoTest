@@ -10,17 +10,16 @@ import UIKit
 
 protocol GinoText {
     var title: String? { get set }
-    var value: Int? { get }
-    var delegate: GinoTextFieldDelegate? { get set }
+    var value: String? { get }
+    var delegate: GinoTextDelegate? { get set }
 }
 
-protocol GinoTextFieldDelegate: class {
-    func ginoSelector(_ selector: GinoTextField, didChangeValue value: String?)
+protocol GinoTextDelegate: class {
+    func ginoSelector(_ selector: GinoText, didChangeValue value: String?)
 }
 
 final class GinoTextField: UIView, GinoText {
     
-
     // MARK: - Properties
     
     var title: String? {
@@ -29,12 +28,11 @@ final class GinoTextField: UIView, GinoText {
         }
     }
     
-    var value: Int? {
-        guard let text = valueTextField.text else { return nil }
-        return Int(text)
+    var value: String? {
+        return valueTextField.text
     }
     
-    weak var delegate: GinoTextFieldDelegate?
+    weak var delegate: GinoTextDelegate?
     
     // MARK: - Views
     
@@ -53,7 +51,7 @@ final class GinoTextField: UIView, GinoText {
         let textField = UITextField()
         textField.font = UIFont(name: "AvenirNext-Medium", size: 18)
         textField.textColor = .darkGray
-//        textField.keyboardType = .asciiCapableNumberPad
+        textField.backgroundColor = .white
         textField.delegate = self
         
         textField.leftView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 15, height: 0)))

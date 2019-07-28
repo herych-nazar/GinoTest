@@ -8,13 +8,11 @@
 
 import UIKit
 
+protocol PickerLoadable {
+    func loadData(_ data: [String]?)
+}
 
-
-//protocol GinoTextFieldDelegate: class {
-//    func ginoSelector(_ selector: GinoTextField, didChangeValue value: String?)
-//}
-
-final class GinoTextPicker: UIView, GinoText {
+final class GinoTextPicker: UIView, GinoText, PickerLoadable {
     
     // MARK: - Properties
     
@@ -24,7 +22,15 @@ final class GinoTextPicker: UIView, GinoText {
         }
     }
     
-    weak var delegate: GinoTextFieldDelegate?
+    var value: String? {
+        return valueTextField.text
+    }
+    
+    weak var delegate: GinoTextDelegate?
+    
+    private var data: [String]? {
+        didSet {  picker.reloadAllComponents() }
+    }
     
     // MARK: - Views
     
@@ -43,6 +49,7 @@ final class GinoTextPicker: UIView, GinoText {
         let textField = UITextField()
         textField.font = UIFont(name: "AvenirNext-Medium", size: 18)
         textField.textColor = .darkGray
+        textField.backgroundColor = .white
         
         textField.inputView = picker
         textField.inputAccessoryView = pickerToolbar
@@ -61,14 +68,12 @@ final class GinoTextPicker: UIView, GinoText {
     
     private lazy var pickerToolbar: UIToolbar = {
         let toolBar = UIToolbar()
-        toolBar.isTranslucent = true
-        toolBar.tintColor = .white
+        toolBar.tintColor = .gray
         toolBar.sizeToFit()
         
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donePicker))
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(donePicker))
         
-        toolBar.setItems([cancelButton, doneButton], animated: false)
+        toolBar.setItems([doneButton], animated: false)
         
         return toolBar
     }()
@@ -96,6 +101,7 @@ final class GinoTextPicker: UIView, GinoText {
     
     @objc private func donePicker() {
         valueTextField.resignFirstResponder()
+        delegate?.ginoSelector(self, didChangeValue: valueTextField.text)
     }
     
     // MARK: - Methods
@@ -109,6 +115,9 @@ final class GinoTextPicker: UIView, GinoText {
         setupValueField()
     }
     
+    func loadData(_ data: [String]?) {
+        self.data = data
+    }
 }
 
 // MARK: - Layout
@@ -139,14 +148,14 @@ extension GinoTextPicker: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 10
+        return data?.count ?? 0
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "myPickerData[row]"
+        return data?[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        valueTextField.text = "myPickerData[row]"
+        valueTextField.text = data?[row]
     }
 }

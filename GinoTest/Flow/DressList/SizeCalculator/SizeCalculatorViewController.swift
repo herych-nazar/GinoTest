@@ -123,9 +123,9 @@ final class SizeCalculatorViewController: UIViewController {
     
     // MARK: - Action
     @objc private func calculateSize(_ sender: UIButton) {
-        if let bust = bustSelector.value,
-            let waist = waistSelector.value,
-            let hips = hipsSelector.value {
+        if let bust = bustSelector.value?.toInt(),
+            let waist = waistSelector.value?.toInt(),
+            let hips = hipsSelector.value?.toInt() {
             presenter.processNewSize(bust: bust, waist: waist, hips: hips)
         }
     }

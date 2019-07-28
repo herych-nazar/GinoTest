@@ -23,16 +23,18 @@ final class DressFilterViewController: UIViewController {
         return scrollView
     }()
     
-    private lazy var colorPicker: GinoTextPicker = {
+    private lazy var categoryPicker: GinoTextPicker = {
         let selector = GinoTextPicker()
-        selector.title = "Color"
+        selector.title = "Category"
+        selector.loadData(presenter.dressCollections)
         
         return selector
     }()
     
-    private lazy var collectionPicker: GinoTextPicker = {
+    private lazy var colorPicker: GinoTextPicker = {
         let selector = GinoTextPicker()
-        selector.title = "Colection"
+        selector.title = "Color"
+        selector.loadData(presenter.dressColors)
         
         return selector
     }()
@@ -40,6 +42,7 @@ final class DressFilterViewController: UIViewController {
     private lazy var sizePicker: GinoTextPicker = {
         let selector = GinoTextPicker()
         selector.title = "Size"
+        selector.loadData(presenter.dressSizes)
         
         return selector
     }()
@@ -48,7 +51,8 @@ final class DressFilterViewController: UIViewController {
         let button = UIButton()
         button.titleLabel?.font = UIFont(name: "AvenirNext-Medium", size: 18)
         button.setTitle("Apply", for: .normal)
-        //        button.backgroundColor = GinoColor.green
+        button.backgroundColor = GinoColor.green
+        button.addTarget(self, action: #selector(applyFilter), for: .touchUpInside)
         
         button.layer.cornerRadius = 5
         button.layer.masksToBounds = true
@@ -60,9 +64,12 @@ final class DressFilterViewController: UIViewController {
         let button = UIButton()
         button.titleLabel?.font = UIFont(name: "AvenirNext-Medium", size: 18)
         button.setTitle("WHATS MY SIZE?", for: .normal)
-        //        button.backgroundColor = GinoColor.green
+        button.backgroundColor = GinoColor.mint
+        button.setTitleColor(.gray, for: .normal)
+        button.addTarget(self, action: #selector(calculateSize), for: .touchUpInside)
         
-        button.layer.cornerRadius = 5
+        button.layer.maskedCorners = .layerMinXMinYCorner
+        button.layer.cornerRadius = 40
         button.layer.masksToBounds = true
         
         return button
@@ -89,28 +96,48 @@ final class DressFilterViewController: UIViewController {
     
     // MARK: - Action
     
-    @objc private func donePicker() {
-        colorPicker.resignFirstResponder()
+    @objc private func applyFilter() {
+        if let dressFilter = formDressFilterResult() {
+            let controller = presenter.makeDressResult(dressResult: dressFilter)
+            navigationController?.pushViewController(controller, animated: true)
+        }
+    }
+    
+    @objc private func calculateSize() {
+        let controller = presenter.makeSizeCalculator()
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     // MARK: - Methods
     
     private func configureController() {
+        configureAppearance()
         setupViews()
-        
-        view.backgroundColor = .yellow
-        navigationController?.pushViewController(presenter.makeDressResult(dressResult: DressFilterResult()), animated: true)
+    }
+    
+    private func configureAppearance() {
+        title = "Filter dress"
+        view.backgroundColor = GinoColor.backgroung
     }
     
     private func setupViews() {
         setupScrollView()
+        setupCategoryPicker()
         setupColorPicker()
-        setupCollectionPicker()
         setupSizePicker()
         setupApplyButton()
         setupWhatSizeButton()
     }
 
+    private func formDressFilterResult() -> DressFilterResult? {
+        guard let category = categoryPicker.value?.toDressCategory(),
+            let color = colorPicker.value?.toDressColor(),
+            let size = sizePicker.value?.toDressSize() else {
+                return nil
+        }
+        
+        return DressFilterResult(category: category, color: color, size: size)
+    }
 }
 
 // MARK: - Layout views
@@ -123,20 +150,20 @@ extension DressFilterViewController {
         }
     }
     
-    private func setupColorPicker() {
-        view.addSubview(colorPicker)
+    private func setupCategoryPicker() {
+        view.addSubview(categoryPicker)
         
-        colorPicker.layout {
-            $0.top.constraint(to: scrollView, by: .top(20))
+        categoryPicker.layout {
+            $0.top.constraint(to: scrollView, by: .top(50))
             $0.constraint(to: view, by: .leading(20), .trailing(-20))
         }
     }
     
-    private func setupCollectionPicker() {
-        view.addSubview(collectionPicker)
+    private func setupColorPicker() {
+        view.addSubview(colorPicker)
         
-        collectionPicker.layout {
-            $0.top.constraint(to: colorPicker, by: .bottom(20))
+        colorPicker.layout {
+            $0.top.constraint(to: categoryPicker, by: .bottom(20))
             $0.constraint(to: view, by: .leading(20), .trailing(-20))
         }
     }
@@ -145,31 +172,29 @@ extension DressFilterViewController {
         view.addSubview(sizePicker)
         
         sizePicker.layout {
-            $0.top.constraint(to: collectionPicker, by: .bottom(20))
+            $0.top.constraint(to: colorPicker, by: .bottom(20))
             $0.constraint(to: view, by: .leading(20), .trailing(-20))
         }
     }
-    
-    
     
     private func setupApplyButton() {
         scrollView.addSubview(applyButton)
         
         applyButton.layout {
             $0.size(.height(50))
-            $0.top.constraint(to: sizePicker, by: .bottom(30))
+            $0.top.constraint(to: sizePicker, by: .bottom(40))
             $0.constraint(to: view, by: .leading(40), .trailing(-40))
+            $0.bottom.constraint(to: scrollView, by: .bottom(0))
         }
     }
     
     private func setupWhatSizeButton() {
-        scrollView.addSubview(whatSizeButton)
+        view.addSubview(whatSizeButton)
         
         whatSizeButton.layout {
-            $0.size(.height(80))
-            $0.top.constraint(to: applyButton, by: .bottom(50))
-            $0.constraint(to: view, by: .leading(40), .trailing(-40))
-            $0.bottom.constraint(to: scrollView, by: .bottom(0))
+            $0.size(.height(80), .width(270))
+            $0.constraint(to: view, by: .trailing(0))
+            $0.bottom.constraint(to: view.safeAreaLayoutGuide, by: .bottom(0))
         }
     }
 }

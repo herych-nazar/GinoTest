@@ -9,5 +9,7 @@
 import Foundation
 
 struct DressFilterResult {
-    
+    let category: DressCategory
+    let color: DressColor
+    let size: DressSize
 }

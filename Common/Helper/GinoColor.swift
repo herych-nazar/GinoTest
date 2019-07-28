@@ -17,6 +17,10 @@ enum GinoColor {
         return UIColor(red: 0.24, green: 0.74, blue: 0.53, alpha: 1)
     }
     
+    static var mint: UIColor {
+        return UIColor(red: 0.84, green: 0.86, blue: 0.33, alpha: 1)
+    }
+    
     //
     static var inStockText: UIColor {
         return UIColor(red: 0.26, green: 0.67, blue: 0.26, alpha: 1)
