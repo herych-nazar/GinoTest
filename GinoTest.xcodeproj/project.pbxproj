@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02DD531BCE167CC06F43C590 /* Pods_GinoTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3347E60D80BF846AEA4B0579 /* Pods_GinoTest.framework */; };
 		BB32C94A22EC2FDE008AE956 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB32C94922EC2FDE008AE956 /* AppDelegate.swift */; };
 		BB32C95122EC2FDF008AE956 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB32C95022EC2FDF008AE956 /* Assets.xcassets */; };
 		BB32C95422EC2FDF008AE956 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB32C95222EC2FDF008AE956 /* LaunchScreen.storyboard */; };
@@ -48,6 +49,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3347E60D80BF846AEA4B0579 /* Pods_GinoTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GinoTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59AF549CFA2282498567AE93 /* Pods-GinoTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GinoTest.release.xcconfig"; path = "Target Support Files/Pods-GinoTest/Pods-GinoTest.release.xcconfig"; sourceTree = "<group>"; };
+		9ED978C2FADA09F8109E6A74 /* Pods-GinoTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GinoTest.debug.xcconfig"; path = "Target Support Files/Pods-GinoTest/Pods-GinoTest.debug.xcconfig"; sourceTree = "<group>"; };
 		BB32C94622EC2FDE008AE956 /* GinoTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GinoTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB32C94922EC2FDE008AE956 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB32C95022EC2FDF008AE956 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -95,12 +99,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02DD531BCE167CC06F43C590 /* Pods_GinoTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E5B28D12B16C1E1A60B309C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3347E60D80BF846AEA4B0579 /* Pods_GinoTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AFA86D3E8DFFF98369F3CEA4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9ED978C2FADA09F8109E6A74 /* Pods-GinoTest.debug.xcconfig */,
+				59AF549CFA2282498567AE93 /* Pods-GinoTest.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BB32C93D22EC2FDE008AE956 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +132,8 @@
 				BB32C95E22EC3961008AE956 /* Core */,
 				BB32C95F22EC396B008AE956 /* Common */,
 				BB32C94722EC2FDE008AE956 /* Products */,
+				AFA86D3E8DFFF98369F3CEA4 /* Pods */,
+				1E5B28D12B16C1E1A60B309C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -322,9 +347,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BB32C95822EC2FDF008AE956 /* Build configuration list for PBXNativeTarget "GinoTest" */;
 			buildPhases = (
+				40EDEFD001A1D20069DA9E36 /* [CP] Check Pods Manifest.lock */,
 				BB32C94222EC2FDE008AE956 /* Sources */,
 				BB32C94322EC2FDE008AE956 /* Frameworks */,
 				BB32C94422EC2FDE008AE956 /* Resources */,
+				B1180D0DBA9E30724B4042EA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -379,6 +406,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		40EDEFD001A1D20069DA9E36 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GinoTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B1180D0DBA9E30724B4042EA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GinoTest/Pods-GinoTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GinoTest/Pods-GinoTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GinoTest/Pods-GinoTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BB32C94222EC2FDE008AE956 /* Sources */ = {
@@ -556,6 +625,7 @@
 		};
 		BB32C95922EC2FDF008AE956 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9ED978C2FADA09F8109E6A74 /* Pods-GinoTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -574,6 +644,7 @@
 		};
 		BB32C95A22EC2FDF008AE956 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59AF549CFA2282498567AE93 /* Pods-GinoTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
