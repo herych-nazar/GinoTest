@@ -12,7 +12,7 @@ final class SizeCalculatorViewController: UIViewController {
 
     // MARK: Properties
     
-    private let presenter: SizeCalculatorPresenter
+    private var presenter: SizeCalculatorPresenter
     
     private var size: Any?
     

@@ -12,7 +12,7 @@ final class CartViewController: UIViewController {
 
     // MARK: Properties
     
-    private let presenter: CartPresenter
+    private var presenter: CartPresenter
     private let cellId = "DressSearchCell"
     
     // MARK: - Views
@@ -57,6 +57,8 @@ final class CartViewController: UIViewController {
     init(presenter: CartPresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
+        
+        self.presenter.delegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -98,14 +100,14 @@ final class CartViewController: UIViewController {
 // MARK: - UICollectionViewDataSource
 extension CartViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return presenter.numberOfDressesInCart()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
         
         if let dressCell = cell as? ShoppingCartCellInterface {
-            dressCell.setDress(DressModel(availability: .inStock, image: UIImage(named: "dress3")!, price: 1257.99, allColors: [.red, .black, .blue], description: "6219M - Sequinned Fabric"))
+            dressCell.setDress(presenter.dressAt(indexPath))
         }
         
         return cell
@@ -122,6 +124,12 @@ extension CartViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 30
+    }
+}
+
+extension CartViewController: CartManagerDelegate {
+    func shouldUpdate() {
+        collectionView.reloadData()
     }
 }
 

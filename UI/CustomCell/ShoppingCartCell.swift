@@ -12,7 +12,7 @@ protocol ShoppingCartCellInterface {
     var dress: Dress? { get }
     var delegate: ShoppingCartDelegate? { get set }
     
-    func setDress(_ dress: Dress)
+    func setDress(_ dress: Dress?)
 }
 
 protocol ShoppingCartDelegate: class {
@@ -99,7 +99,7 @@ final class ShoppingCartCell: UICollectionViewCell, ShoppingCartCellInterface {
     }
     
     // MARK: - Methods
-    func setDress(_ dress: Dress) {
+    func setDress(_ dress: Dress?) {
         self.dress = dress
     }
     

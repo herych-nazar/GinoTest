@@ -9,14 +9,22 @@
 import Foundation
 
 protocol CartPresenter {
+    var delegate: CartManagerDelegate? { get set }
     
+    func numberOfDressesInCart() -> Int
+    func dressAt(_ indexPath: IndexPath) -> Dress
 }
 
 final class GinoCartPresenter: CartPresenter {
     
     // MARK: - Properties
     
-    private let cartManager: CartManager
+    private var cartManager: CartManager
+    
+    var delegate: CartManagerDelegate? {
+        get { return cartManager.delegate }
+        set { cartManager.delegate = newValue }
+    }
     
     // MARK: - Constructor
     
@@ -24,4 +32,11 @@ final class GinoCartPresenter: CartPresenter {
         self.cartManager = cartManager
     }
     
+    func numberOfDressesInCart() -> Int {
+        return cartManager.dressesInShoppingCart().count
+    }
+    
+    func dressAt(_ indexPath: IndexPath) -> Dress {
+        return cartManager.dressesInShoppingCart()[indexPath.item]
+    }
 }

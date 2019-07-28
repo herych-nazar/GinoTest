@@ -12,6 +12,7 @@ protocol CartManager {
     var delegate: CartManagerDelegate? { get set }
     
     func addDress(_ dress: Dress)
+    func dressesInShoppingCart() -> [Dress]
 }
 
 protocol CartManagerDelegate: class {
@@ -37,5 +38,9 @@ final class GinoCartManager: CartManager {
     
     func addDress(_ dress: Dress) {
         dresses.append(dress)
+    }
+    
+    func dressesInShoppingCart() -> [Dress] {
+        return dresses
     }
 }
