@@ -73,14 +73,14 @@ final class DressResultViewController: UIViewController {
 // MARK: - UICollectionViewDataSource
 extension DressResultViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return presenter.numberOfResults()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
         
         if let dressCell = cell as? DressResultCellInterface {
-            dressCell.setDress(DressModel(availability: .inStock, image: UIImage(named: "dress3")!, price: 1257.99, allColors: [.red, .black, .blue], description: "6219M - Sequinned Fabric"))
+            dressCell.setDress(presenter.dressResultAt(indexPath))
         }        
         
         return cell

@@ -44,7 +44,6 @@ extension GinoDatabaseManager {
         return Array(realm
             .objects(DressObject.self)
             .filter(predicate))
-//            .filter { $0.storage.hasElementWith(dressFilter.color, size: dressFilter.size) }
     }
     
     func loadDresses() -> [DressObject] {
@@ -73,6 +72,17 @@ extension List where Element == DressPack {
         return contains(where: {
             ($0.color == color.rawValue) && ($0.size?.name == size.rawValue)
         })
+    }
+    
+    func elementWhere(_ color: DressColor, size: DressSize) -> DressPack? {
+        return first(where: {
+            ($0.color == color.rawValue) && ($0.size?.name == size.rawValue)
+        })
+    }
+    
+    func allColors() -> Set<UIColor> {
+        return Set(compactMap({ DressColor(rawValue: $0.color)?.color }))
+        
     }
 }
 

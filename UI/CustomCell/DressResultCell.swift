@@ -9,7 +9,7 @@
 import UIKit
 
 protocol DressResultCellInterface: class {
-    func setDress(_ dress: Dress)
+    func setDress(_ dress: Dress?)
 }
 
 final class DressResultCell: UICollectionViewCell, DressResultCellInterface {
@@ -97,13 +97,13 @@ final class DressResultCell: UICollectionViewCell, DressResultCellInterface {
     
     // MARK: - Methods
     
-    func setDress(_ dress: Dress) {
+    func setDress(_ dress: Dress?) {
         self.dress = dress
-        imageView.image = dress.image
-        priceLabel.text = "$\(dress.price)"
-        dressColorsView.setColors(dress.allColors)
-        descriptionLabel.text = dress.description
-        configureAvailabilityLabel(dress.availability)
+        imageView.image = dress?.image
+        priceLabel.text = "$\(dress?.price ?? 0.0)"
+        dressColorsView.setColors(dress?.allColors ?? [])
+        descriptionLabel.text = dress?.description
+        configureAvailabilityLabel(dress?.availability)
     }
     
     private func configureCell() {
