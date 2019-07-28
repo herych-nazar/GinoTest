@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -46,6 +46,8 @@
 		BBBA1A4522EE035C00624680 /* DressColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA1A4422EE035C00624680 /* DressColor.swift */; };
 		BBBA1A4722EE040B00624680 /* DressSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA1A4622EE040B00624680 /* DressSize.swift */; };
 		BBBA1A4922EE067300624680 /* String+converter->DressFilterResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA1A4822EE067300624680 /* String+converter->DressFilterResult.swift */; };
+		BBBA1A4B22EE2FDA00624680 /* SizeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA1A4A22EE2FDA00624680 /* SizeObject.swift */; };
+		BBBA1A4D22EE324600624680 /* DressObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA1A4C22EE324600624680 /* DressObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +94,8 @@
 		BBBA1A4422EE035C00624680 /* DressColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DressColor.swift; sourceTree = "<group>"; };
 		BBBA1A4622EE040B00624680 /* DressSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DressSize.swift; sourceTree = "<group>"; };
 		BBBA1A4822EE067300624680 /* String+converter->DressFilterResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+converter->DressFilterResult.swift"; sourceTree = "<group>"; };
+		BBBA1A4A22EE2FDA00624680 /* SizeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeObject.swift; sourceTree = "<group>"; };
+		BBBA1A4C22EE324600624680 /* DressObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DressObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +124,6 @@
 				9ED978C2FADA09F8109E6A74 /* Pods-GinoTest.debug.xcconfig */,
 				59AF549CFA2282498567AE93 /* Pods-GinoTest.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -245,6 +248,8 @@
 		BB32C96422EC3A67008AE956 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				BBBA1A4A22EE2FDA00624680 /* SizeObject.swift */,
+				BBBA1A4C22EE324600624680 /* DressObject.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -463,6 +468,7 @@
 				BB6D6E6E22EDB0BA007F4A05 /* Availability.swift in Sources */,
 				BBBA1A4222EE020800624680 /* DressCategory.swift in Sources */,
 				BBBA1A4722EE040B00624680 /* DressSize.swift in Sources */,
+				BBBA1A4D22EE324600624680 /* DressObject.swift in Sources */,
 				BBA6CE3222ECD9C800F8B6D9 /* SizeResult.swift in Sources */,
 				BB32C97722EC4530008AE956 /* CartManager.swift in Sources */,
 				BB6D6E6A22EDB052007F4A05 /* DressResultCell.swift in Sources */,
@@ -475,6 +481,7 @@
 				BB32C96822EC3C1B008AE956 /* GinoAppDependencyContainer.swift in Sources */,
 				BBBA1A4922EE067300624680 /* String+converter->DressFilterResult.swift in Sources */,
 				BBBA1A3822EDCEC600624680 /* Int+increment+decrement.swift in Sources */,
+				BBBA1A4B22EE2FDA00624680 /* SizeObject.swift in Sources */,
 				BBA6CE2E22EC87FE00F8B6D9 /* GinoTextField.swift in Sources */,
 				BB32C94A22EC2FDE008AE956 /* AppDelegate.swift in Sources */,
 				BB32C98422EC4BD3008AE956 /* DressFilterPresenter.swift in Sources */,

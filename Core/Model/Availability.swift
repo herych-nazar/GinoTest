@@ -8,20 +8,13 @@
 
 import UIKit
 
-enum Availability {
-    case inStock
-    case inPoduction
-    case forwardOrder
+enum Availability: String {
+    case inStock = "IN STOCK"
+    case inPoduction = "IN PRODUCTION"
+    case forwardOrder = "FORWARD ORDER"
     
     var description: String {
-        switch self {
-        case .inStock:
-            return "IN STOCK"
-        case .inPoduction:
-            return "IN PRODUCTION"
-        case .forwardOrder:
-            return "FORWARD ORDER"
-        }
+        return rawValue
     }
     
     var textColor: UIColor {

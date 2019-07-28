@@ -7,12 +7,72 @@
 //
 
 import Foundation
+import RealmSwift
 
 protocol DatabaseManager {
+    func loadSizes() -> [SizeObject]
+    func loadSize(_ key: DressSize) -> SizeObject?
+    func loadDresses(_ category: DressCategory) -> [DressObject]
+    func loadDresses() -> [DressObject]
     
+    func saveSize(_ size: SizeObject)
+    func saveDress(_ dress: DressObject)
 }
 
 
 final class GinoDatabaseManager: DatabaseManager {
     
+    // MARK: - Properties
+    
+    private let realm = try! Realm()
+    
 }
+
+// MARK: - Loadable
+extension GinoDatabaseManager {
+    func loadSizes() -> [SizeObject] {
+        return Array(realm.objects(SizeObject.self))
+    }
+    
+    func loadSize(_ key: DressSize) -> SizeObject? {
+        return realm.object(ofType: SizeObject.self, forPrimaryKey: key.rawValue)
+    }
+    
+    func loadDresses(_ category: DressCategory) -> [DressObject] {
+        let predicate = NSPredicate(format: "category == %@", category.rawValue)
+        
+        return Array(realm
+            .objects(DressObject.self)
+            .filter(predicate))
+//            .filter { $0.storage.hasElementWith(dressFilter.color, size: dressFilter.size) }
+    }
+    
+    func loadDresses() -> [DressObject] {
+        return Array(realm.objects(DressObject.self))
+    }
+}
+
+// MARK: - Writable
+extension GinoDatabaseManager {
+    func saveSize(_ size: SizeObject) {
+        try! realm.write {
+            realm.add(size)
+        }
+    }
+    
+    func saveDress(_ dress: DressObject) {
+        try! realm.write {
+            realm.add(dress)
+        }
+    }
+}
+
+
+extension List where Element == DressPack {
+    func hasElementWith(_ color: DressColor, size: DressSize) -> Bool {
+        return contains(where: {
+            ($0.color == color.rawValue) && ($0.size?.name == size.rawValue)
+        })
+    }
+}
+
