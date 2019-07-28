@@ -10,6 +10,7 @@ import UIKit
 
 protocol GinoText {
     var title: String? { get set }
+    var value: Int? { get }
     var delegate: GinoTextFieldDelegate? { get set }
 }
 
@@ -18,6 +19,7 @@ protocol GinoTextFieldDelegate: class {
 }
 
 final class GinoTextField: UIView, GinoText {
+    
 
     // MARK: - Properties
     
@@ -25,6 +27,11 @@ final class GinoTextField: UIView, GinoText {
         didSet {
             titleLabel.text = title
         }
+    }
+    
+    var value: Int? {
+        guard let text = valueTextField.text else { return nil }
+        return Int(text)
     }
     
     weak var delegate: GinoTextFieldDelegate?
@@ -46,8 +53,7 @@ final class GinoTextField: UIView, GinoText {
         let textField = UITextField()
         textField.font = UIFont(name: "AvenirNext-Medium", size: 18)
         textField.textColor = .darkGray
-        textField.smartDashesType = .default
-        textField.keyboardType = .numberPad
+//        textField.keyboardType = .asciiCapableNumberPad
         textField.delegate = self
         
         textField.leftView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 15, height: 0)))
@@ -111,6 +117,17 @@ extension GinoTextField {
 extension GinoTextField: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return true
+    }
+    
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        let invalid = CharacterSet(charactersIn: "1234567890")
+        if string.rangeOfCharacter(from: invalid) != nil {
+            return true
+        }
+        
+        return false
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
