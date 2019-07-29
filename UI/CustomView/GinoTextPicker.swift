@@ -10,6 +10,7 @@ import UIKit
 
 protocol PickerLoadable {
     func loadData(_ data: [String]?)
+    func setValue(_ data: String)
 }
 
 final class GinoTextPicker: UIView, GinoText, PickerLoadable {
@@ -106,6 +107,14 @@ final class GinoTextPicker: UIView, GinoText, PickerLoadable {
     
     // MARK: - Methods
     
+    func loadData(_ data: [String]?) {
+        self.data = data
+    }
+    
+    func setValue(_ data: String) {
+        valueTextField.text = data
+    }
+    
     private func configureView() {
         setupViews()
     }
@@ -113,10 +122,6 @@ final class GinoTextPicker: UIView, GinoText, PickerLoadable {
     private func setupViews() {
         setupTitleLabel()
         setupValueField()
-    }
-    
-    func loadData(_ data: [String]?) {
-        self.data = data
     }
 }
 

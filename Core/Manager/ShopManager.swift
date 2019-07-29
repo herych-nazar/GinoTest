@@ -8,8 +8,11 @@
 
 import UIKit
 
-protocol ShopManager: ShopBuyable {
+protocol ShopManager: ShopBuyable, ShopSizes {
     func loadDresses(_ dressFilter: DressFilterResult) -> [DressObject]
+}
+
+protocol ShopSizes {
     func loadSizes() -> [SizeObject]
 }
 
@@ -49,13 +52,12 @@ final class GinoShopManager: ShopManager {
         }
         
         // Dress
-        guard let size = databaseManager.loadSize(.m) else { return }
-        ["2128H - Tulle", "2835C - Lace", "3018B - Lace", "3032H - Crepe"].forEach {
-            if let dress = GinoGenerator.shared.generateDress(name: $0, size: size) {
-                databaseManager.saveDress(dress)
-            }
+        let sizes = databaseManager.loadSizes()
+        GinoGenerator.shared.generateDress(sizes: sizes)
+            .flatMap { $0 }
+            .forEach {
+              databaseManager.saveDress($0)
         }
-        
         
     }
 }

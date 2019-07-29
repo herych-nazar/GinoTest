@@ -52,6 +52,8 @@ final class GinoTextField: UIView, GinoText {
         textField.font = UIFont(name: "AvenirNext-Medium", size: 18)
         textField.textColor = .darkGray
         textField.backgroundColor = .white
+        textField.keyboardType = .numberPad
+        textField.inputAccessoryView = toolBar
         textField.delegate = self
         
         textField.leftView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 15, height: 0)))
@@ -66,6 +68,17 @@ final class GinoTextField: UIView, GinoText {
         return textField
     }()
     
+    private lazy var toolBar: UIToolbar = {
+        let toolBar = UIToolbar()
+        toolBar.tintColor = .gray
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneKeyboard))
+        toolBar.setItems([doneButton], animated: false)
+        
+        return toolBar
+    }()
+    
     // MARK: - Constructor
 
     override init(frame: CGRect) {
@@ -77,7 +90,14 @@ final class GinoTextField: UIView, GinoText {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Action
+    
+    @objc private func doneKeyboard() {
+        valueTextField.resignFirstResponder()
+    }
+    
     // MARK: - Methods
+    
     private func configureView() {
         setupViews()
     }
@@ -115,17 +135,6 @@ extension GinoTextField {
 extension GinoTextField: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return true
-    }
-    
-    func textField(_ textField: UITextField,
-                   shouldChangeCharactersIn range: NSRange,
-                   replacementString string: String) -> Bool {
-        let invalid = CharacterSet(charactersIn: "1234567890")
-        if string.rangeOfCharacter(from: invalid) != nil {
-            return true
-        }
-        
-        return false
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {

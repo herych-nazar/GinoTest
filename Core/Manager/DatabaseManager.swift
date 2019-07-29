@@ -94,4 +94,3 @@ extension List where Element == DressPack {
         return Set(compactMap({ DressColor(rawValue: $0.color) }))
     }
 }
-

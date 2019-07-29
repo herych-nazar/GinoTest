@@ -104,7 +104,7 @@ final class DressFilterViewController: UIViewController {
     }
     
     @objc private func calculateSize() {
-        let controller = presenter.makeSizeCalculator()
+        let controller = presenter.makeSizeCalculator(delegate: self)
         navigationController?.pushViewController(controller, animated: true)
     }
     
@@ -140,6 +140,13 @@ final class DressFilterViewController: UIViewController {
     }
 }
 
+// MARK: - SizeCalculatorDelegate
+extension DressFilterViewController: SizeCalculatorDelegate {
+    func userDidSetSize(_ size: DressSize) {
+        sizePicker.setValue(size.rawValue)
+    }
+}
+
 // MARK: - Layout views
 extension DressFilterViewController {
     private func setupScrollView() {
@@ -154,7 +161,7 @@ extension DressFilterViewController {
         view.addSubview(categoryPicker)
         
         categoryPicker.layout {
-            $0.top.constraint(to: scrollView, by: .top(50))
+            $0.top.constraint(to: scrollView, by: .top(20))
             $0.constraint(to: view, by: .leading(20), .trailing(-20))
         }
     }
@@ -163,7 +170,7 @@ extension DressFilterViewController {
         view.addSubview(colorPicker)
         
         colorPicker.layout {
-            $0.top.constraint(to: categoryPicker, by: .bottom(20))
+            $0.top.constraint(to: categoryPicker, by: .bottom(15))
             $0.constraint(to: view, by: .leading(20), .trailing(-20))
         }
     }
@@ -172,7 +179,7 @@ extension DressFilterViewController {
         view.addSubview(sizePicker)
         
         sizePicker.layout {
-            $0.top.constraint(to: colorPicker, by: .bottom(20))
+            $0.top.constraint(to: colorPicker, by: .bottom(15))
             $0.constraint(to: view, by: .leading(20), .trailing(-20))
         }
     }
@@ -184,7 +191,7 @@ extension DressFilterViewController {
             $0.size(.height(50))
             $0.top.constraint(to: sizePicker, by: .bottom(40))
             $0.constraint(to: view, by: .leading(40), .trailing(-40))
-            $0.bottom.constraint(to: scrollView, by: .bottom(0))
+            $0.bottom.constraint(to: scrollView, by: .bottom(-50))
         }
     }
     

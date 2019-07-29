@@ -9,6 +9,6 @@
 import Foundation
 
 struct SizeResul {
-    var description: String
-    var value: Any
+    var description: String?
+    var value: DressSize?
 }

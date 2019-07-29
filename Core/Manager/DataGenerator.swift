@@ -8,6 +8,8 @@
 
 import UIKit
 
+// NOTE: - Need to generate default data
+
 class GinoGenerator {
     
     static let shared = GinoGenerator()
@@ -60,24 +62,30 @@ class GinoGenerator {
         return [xxxs, xxs, xs, s, m, l, xl, twoXL, threeXL, fourXL, fiveXL, sixXL, sevenXL, eightXL]
     }
     
-    func generateDress(name: String, size: SizeObject) -> DressObject? {
-        let packs = Set((0..<3).compactMap({ _ in DressColor.allCases.randomElement() })).map {
-            generateDressPack(size: size, color: $0)
+    func generateDress(sizes: [SizeObject]) -> [[DressObject]] {
+        return DressCategory.allCases.map { category in
+            return (1...10).flatMap { _ in
+                let packs = Set((0..<3).compactMap({ _ in DressColor.allCases.randomElement() })).flatMap { color in
+                    return sizes.map { size in
+                        generateDressPack(size: size, color: color)
+                    }
+                }
+                
+                return DressObject(value: ["name": String.random(length: 8),
+                                           "category": category.rawValue,
+                                    "price": Int.random(in: 100...2000),
+                                    "storage": packs,
+                                    "image": UIImage(named: "dress3")?.pngData()])
+            }
         }
-        
-        return DressObject(value: ["name": name, "category": DressCategory.eveningWear.rawValue,
-                                   "price": Int.random(in: 100...2000),
-                                   "storage": packs,
-                                   "image": UIImage(named: "dress3")?.pngData()])
     }
     
-    func generateDressPack(size: SizeObject, color: DressColor) -> DressPack {
+    private func generateDressPack(size: SizeObject, color: DressColor) -> DressPack {
         let status = Availability.allCases.randomElement()
         
         return DressPack(value: ["size": size,
                                  "count": Int.random(in: 10...100),
                                  "color": color.rawValue,
                                  "status": status?.description])
-        
     }
 }

@@ -13,7 +13,7 @@ protocol DressFilterPresenter {
     var dressColors: [String] { get }
     var dressSizes: [String] { get }
     
-    func makeSizeCalculator() -> UIViewController
+    func makeSizeCalculator(delegate: SizeCalculatorDelegate?) -> UIViewController
     func makeDressResult(dressResult: DressFilterResult) -> UIViewController
 }
 
@@ -29,8 +29,8 @@ final class GinoDressFilterPresenter: DressFilterPresenter {
         dressDependencyContainer = container
     }
     
-    func makeSizeCalculator() -> UIViewController {
-        return dressDependencyContainer.makeSizeCalculatorViewController()
+    func makeSizeCalculator(delegate: SizeCalculatorDelegate?) -> UIViewController {
+        return dressDependencyContainer.makeSizeCalculatorViewController(delegate: delegate)
     }
     
     func makeDressResult(dressResult: DressFilterResult) -> UIViewController {

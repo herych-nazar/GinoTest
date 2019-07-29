@@ -14,7 +14,7 @@ final class SizeCalculatorViewController: UIViewController {
     
     private var presenter: SizeCalculatorPresenter
     
-    private var size: Any?
+    private var size: DressSize?
     
     // MARK: - Views
     
@@ -162,6 +162,10 @@ extension SizeCalculatorViewController: SizeCalculatorView {
         resultLabel.text = result.description
         size = result.value
     }
+    
+    func shouldInvalidate() {
+        navigationController?.popViewController(animated: true)
+    }
 }
 
 // MARK: - Extension
@@ -178,7 +182,7 @@ extension SizeCalculatorViewController {
         scrollView.addSubview(bustSelector)
         
         bustSelector.layout {
-            $0.top.constraint(to: scrollView, by: .top(50))
+            $0.top.constraint(to: scrollView, by: .top(20))
             $0.constraint(to: view, by: .leading(20), .trailing(-20))
         }
     }
@@ -187,7 +191,7 @@ extension SizeCalculatorViewController {
         scrollView.addSubview(waistSelector)
         
         waistSelector.layout {
-            $0.top.constraint(to: bustSelector, by: .bottom(20))
+            $0.top.constraint(to: bustSelector, by: .bottom(15))
             $0.constraint(to: view, by: .leading(20), .trailing(-20))
         }
     }
@@ -196,7 +200,7 @@ extension SizeCalculatorViewController {
         scrollView.addSubview(hipsSelector)
         
         hipsSelector.layout {
-            $0.top.constraint(to: waistSelector, by: .bottom(20))
+            $0.top.constraint(to: waistSelector, by: .bottom(15))
             $0.constraint(to: view, by: .leading(20), .trailing(-20))
         }
     }
