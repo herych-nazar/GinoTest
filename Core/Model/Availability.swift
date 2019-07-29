@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum Availability: String {
+enum Availability: String, CaseIterable {
     case inStock = "IN STOCK"
     case inPoduction = "IN PRODUCTION"
     case forwardOrder = "FORWARD ORDER"

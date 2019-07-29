@@ -51,6 +51,7 @@
 		BBBA1A4F22EE5D2D00624680 /* UIImage+Constructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA1A4E22EE5D2D00624680 /* UIImage+Constructor.swift */; };
 		BBBA1A5122EEE6A300624680 /* Array<DressPack>+statusForFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA1A5022EEE6A300624680 /* Array<DressPack>+statusForFilter.swift */; };
 		BBBA1A5322EEE7C700624680 /* Array<DressColor>+toColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA1A5222EEE7C700624680 /* Array<DressColor>+toColor.swift */; };
+		BBBA1A5522EF0D9C00624680 /* DataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA1A5422EF0D9C00624680 /* DataGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +103,7 @@
 		BBBA1A4E22EE5D2D00624680 /* UIImage+Constructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Constructor.swift"; sourceTree = "<group>"; };
 		BBBA1A5022EEE6A300624680 /* Array<DressPack>+statusForFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array<DressPack>+statusForFilter.swift"; sourceTree = "<group>"; };
 		BBBA1A5222EEE7C700624680 /* Array<DressColor>+toColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array<DressColor>+toColor.swift"; sourceTree = "<group>"; };
+		BBBA1A5422EF0D9C00624680 /* DataGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +248,7 @@
 			children = (
 				BB32C97222EC44F0008AE956 /* DatabaseManager.swift */,
 				BB32C97422EC4519008AE956 /* ShopManager.swift */,
+				BBBA1A5422EF0D9C00624680 /* DataGenerator.swift */,
 				BB32C97622EC4530008AE956 /* CartManager.swift */,
 			);
 			path = Manager;
@@ -501,6 +504,7 @@
 				BBA6CE3022ECCF5A00F8B6D9 /* GinoColor.swift in Sources */,
 				BBA6CE2822EC84FC00F8B6D9 /* Helpers.swift in Sources */,
 				BB32C98822EC4C08008AE956 /* SizeCalculatorViewController.swift in Sources */,
+				BBBA1A5522EF0D9C00624680 /* DataGenerator.swift in Sources */,
 				BB32C97522EC4519008AE956 /* ShopManager.swift in Sources */,
 				BBBA1A4522EE035C00624680 /* DressColor.swift in Sources */,
 				BB32C98622EC4BF1008AE956 /* SizeCalculatorPresenter.swift in Sources */,

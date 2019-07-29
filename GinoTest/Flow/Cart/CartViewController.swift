@@ -35,7 +35,7 @@ final class CartViewController: UIViewController {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .black
-        label.text = "Subtotal: $1241.0"
+        label.text = "Subtotal: $0.0"
         
         return label
     }()

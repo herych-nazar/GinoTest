@@ -21,10 +21,10 @@ final class SizeObject: Object {
 }
 
 final class InternationalSize: Object {
-    @objc dynamic var keySymb = ""
+    @objc dynamic var keySymbol = ""
     @objc dynamic var value = 0
     
-    override static func primaryKey() -> String? {
-        return "keySymb"
+    override static func indexedProperties() -> [String] {
+        return ["keySymbol"]
     }
 }

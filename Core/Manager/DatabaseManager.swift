@@ -17,6 +17,8 @@ protocol DatabaseManager {
     
     func saveSize(_ size: SizeObject)
     func saveDress(_ dress: DressObject)
+    
+    func deleteAllData()
 }
 
 
@@ -62,6 +64,14 @@ extension GinoDatabaseManager {
     func saveDress(_ dress: DressObject) {
         try! realm.write {
             realm.add(dress)
+        }
+    }
+}
+
+extension GinoDatabaseManager {
+    func deleteAllData() {
+        try? realm.write {
+            realm.deleteAll()
         }
     }
 }
