@@ -19,6 +19,7 @@ protocol DatabaseManager {
     func saveDress(_ dress: DressObject)
     
     func deleteAllData()
+    func updateDressCounter(_ dressPack: DressPack, value: Int)
 }
 
 
@@ -68,10 +69,20 @@ extension GinoDatabaseManager {
     }
 }
 
+// MARK: - Deletable
 extension GinoDatabaseManager {
     func deleteAllData() {
         try? realm.write {
             realm.deleteAll()
+        }
+    }
+}
+
+// MARK: - Updatable
+extension GinoDatabaseManager {
+    func updateDressCounter(_ dressPack: DressPack, value: Int) {
+        try! realm.write {
+            dressPack.setValue(true, forKeyPath: "isFirst")
         }
     }
 }

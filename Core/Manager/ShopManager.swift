@@ -17,7 +17,7 @@ protocol ShopSizes {
 }
 
 protocol ShopBuyable {
-    
+    func buyDresses(_ dress: Dress)
 }
 
 final class GinoShopManager: ShopManager {
@@ -60,4 +60,14 @@ final class GinoShopManager: ShopManager {
         }
         
     }
+}
+
+
+extension GinoShopManager {
+    func buyDresses(_ dress: Dress) {
+        if let pack = dress.dress.storage.elementWhere(dress.color, size: dress.size) {
+            databaseManager.updateDressCounter(pack, value: dress.orderCount ?? 0)
+        }
+    }
+    
 }
