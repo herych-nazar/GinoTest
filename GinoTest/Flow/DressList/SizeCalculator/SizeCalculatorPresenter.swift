@@ -50,6 +50,11 @@ final class GinoSizeCalculatorPresenter: SizeCalculatorPresenter {
         }
     }
     
+    func saveSize(_ size: DressSize) {
+        delegate?.userDidSetSize(size)
+        view?.shouldInvalidate()
+    }
+    
     private func optimalSizes(bust: Int, waist: Int, hips: Int) -> [SizeObject] {
         let sizes = shopSizes.loadSizes()
         
@@ -63,10 +68,4 @@ final class GinoSizeCalculatorPresenter: SizeCalculatorPresenter {
     private func userSize(optimalSizes: [SizeObject]) -> SizeObject? {
         return optimalSizes.max { $0.bust < $1.bust }
     }
-    
-    func saveSize(_ size: DressSize) {
-        delegate?.userDidSetSize(size)
-        view?.shouldInvalidate()
-    }
-    
 }

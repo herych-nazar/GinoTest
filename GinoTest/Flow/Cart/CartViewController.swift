@@ -45,6 +45,7 @@ final class CartViewController: UIViewController {
         button.titleLabel?.font = UIFont(name: "AvenirNext-Medium", size: 18)
         button.setTitle("Checkout", for: .normal)
         button.backgroundColor = GinoColor.green
+        button.addTarget(self, action: #selector(checkout(_:)), for: .touchUpInside)
         
         button.layer.cornerRadius = 5
         button.layer.masksToBounds = true
@@ -58,6 +59,7 @@ final class CartViewController: UIViewController {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
         
+        self.presenter.view = self
         self.presenter.delegate = self
     }
     
@@ -71,6 +73,12 @@ final class CartViewController: UIViewController {
         super.viewDidLoad()
         
         configureController()
+    }
+    
+    // MARK: - Action
+    
+    @objc private func checkout(_ sender: UIButton) {
+        presenter.buyAllDresses()
     }
     
     // MARK: - Methods
@@ -129,6 +137,15 @@ extension CartViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 30
+    }
+}
+
+// MARK: - GinoCartView
+extension CartViewController: GinoCartView {
+    func shouldShowSuccessMessage(_ message: String) {
+        let allert = UIAlertController(title: "Success", message: message, preferredStyle: .alert)
+        allert.addAction(UIAlertAction(title: "Ok", style: .default))
+        present(allert, animated: true)
     }
 }
 

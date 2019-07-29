@@ -16,6 +16,8 @@ protocol CartManager {
     func dress(by indexPath: IndexPath) -> Dress
     func didCartContain(_ dress: Dress) -> Bool
     func removeFromCart(_ dress: Dress)
+    func buyAllDresses()
+    func totalDressCount() -> Int
 }
 
 protocol CartManagerDelegate: class {
@@ -57,8 +59,22 @@ final class GinoCartManager: CartManager {
     }
     
     func removeFromCart(_ dress: Dress) {
-        dresses.removeAll { $0.isEqual(to: dress) }
         dress.orderCount = nil
-        delegate?.shouldUpdate()
+        
+        if let index = dresses.firstIndex(where: { $0.isEqual(to: dress) }) {
+            dresses.remove(at: index)
+            delegate?.shouldUpdate()
+        }
+    }
+    
+    func buyAllDresses() {
+        dresses.forEach {
+            shop.buyDresses($0)
+            removeFromCart($0)
+        }
+    }
+    
+    func totalDressCount() -> Int {
+        return dresses.reduce(0, { $0 + ($1.orderCount ?? 0) })
     }
 }

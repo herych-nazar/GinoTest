@@ -66,7 +66,7 @@ final class GinoShopManager: ShopManager {
 extension GinoShopManager {
     func buyDresses(_ dress: Dress) {
         if let pack = dress.dress.storage.elementWhere(dress.color, size: dress.size) {
-            databaseManager.updateDressCounter(pack, value: dress.orderCount ?? 0)
+            databaseManager.updateDressCounter(pack, removedUnits: dress.orderCount ?? 0)
         }
     }
     

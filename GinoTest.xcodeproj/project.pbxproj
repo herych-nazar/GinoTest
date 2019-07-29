@@ -56,6 +56,7 @@
 		BBBA1A5922EF2BE200624680 /* SizeObject+Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA1A5822EF2BE200624680 /* SizeObject+Description.swift */; };
 		BBBA1A5B22EF2D0700624680 /* List+internationalElemen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA1A5A22EF2D0700624680 /* List+internationalElemen.swift */; };
 		BBBA1A5D22EF46B100624680 /* String+random.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA1A5C22EF46B100624680 /* String+random.swift */; };
+		BBBA1A5F22EF723200624680 /* Dress+maxOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA1A5E22EF723200624680 /* Dress+maxOrder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,7 @@
 		BBBA1A5822EF2BE200624680 /* SizeObject+Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SizeObject+Description.swift"; sourceTree = "<group>"; };
 		BBBA1A5A22EF2D0700624680 /* List+internationalElemen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "List+internationalElemen.swift"; sourceTree = "<group>"; };
 		BBBA1A5C22EF46B100624680 /* String+random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+random.swift"; sourceTree = "<group>"; };
+		BBBA1A5E22EF723200624680 /* Dress+maxOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dress+maxOrder.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +291,7 @@
 				BBBA1A5A22EF2D0700624680 /* List+internationalElemen.swift */,
 				BBBA1A5822EF2BE200624680 /* SizeObject+Description.swift */,
 				BBBA1A5022EEE6A300624680 /* Array<DressPack>+statusForFilter.swift */,
+				BBBA1A5E22EF723200624680 /* Dress+maxOrder.swift */,
 				BBBA1A5222EEE7C700624680 /* Array<DressColor>+toColor.swift */,
 				BBBA1A5C22EF46B100624680 /* String+random.swift */,
 				BBBA1A4E22EE5D2D00624680 /* UIImage+Constructor.swift */,
@@ -491,6 +494,7 @@
 				BB32C97322EC44F0008AE956 /* DatabaseManager.swift in Sources */,
 				BB6D6E6E22EDB0BA007F4A05 /* Availability.swift in Sources */,
 				BBBA1A4222EE020800624680 /* DressCategory.swift in Sources */,
+				BBBA1A5F22EF723200624680 /* Dress+maxOrder.swift in Sources */,
 				BBBA1A4722EE040B00624680 /* DressSize.swift in Sources */,
 				BBBA1A4D22EE324600624680 /* DressObject.swift in Sources */,
 				BBA6CE3222ECD9C800F8B6D9 /* SizeResult.swift in Sources */,

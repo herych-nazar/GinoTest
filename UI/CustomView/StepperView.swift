@@ -12,6 +12,7 @@ protocol StepperViewInterface {
     var delegate: StepperViewDelegate? { get set }
     
     func setStep(_ step: Int)
+    func setMax(_ value: Int)
 }
 
 protocol StepperViewDelegate: class {
@@ -24,10 +25,11 @@ final class StepperView: UIView, StepperViewInterface {
     
     weak var delegate: StepperViewDelegate?
     
+    private var maxValue = 100
     private var stepCounter = 1 {
         didSet {
-            if stepCounter <= 0 {
-                stepCounter = 1
+            if stepCounter <= 0 || stepCounter > maxValue {
+                stepCounter = oldValue
             }
             
             countLabel.text = String(stepCounter)
@@ -85,6 +87,10 @@ final class StepperView: UIView, StepperViewInterface {
     
     func setStep(_ step: Int) {
         stepCounter = step
+    }
+    
+    func setMax(_ value: Int) {
+        maxValue = value
     }
     
     private func setupViews() {

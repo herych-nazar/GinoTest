@@ -31,6 +31,8 @@ final class ShoppingCartCell: UICollectionViewCell, ShoppingCartCellInterface {
             dressImageView.image = UIImage(data: dress?.dress.image)
             descriptionLabel.text = dress?.dress.name
             priceLabel.text = "$\(dress?.dress.price ?? 0.0)"
+            stepperView.setStep(dress?.orderCount ?? 1)
+            stepperView.setMax(dress?.maxOrder() ?? 1)
         }
     }
     
@@ -120,8 +122,14 @@ final class ShoppingCartCell: UICollectionViewCell, ShoppingCartCellInterface {
         addContainerView()
         addStepperView()
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        stepperView.setStep(dress?.orderCount ?? 1)
+    }
 }
 
+// MARK: - StepperViewDelegate
 extension ShoppingCartCell: StepperViewDelegate {
     func didChangeValue(_ value: Int) {
         delegate?.shoppingCart(self, didChangeCount: value)

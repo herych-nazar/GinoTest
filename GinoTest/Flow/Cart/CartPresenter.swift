@@ -10,11 +10,18 @@ import Foundation
 
 protocol CartPresenter {
     var delegate: CartManagerDelegate? { get set }
+    var view: GinoCartView? { get set }
     var totalPrice: Double { get }
     
     func numberOfDressesInCart() -> Int
     func dressAt(_ indexPath: IndexPath) -> Dress
     func removeDress(_ dress: Dress)
+    
+    func buyAllDresses()
+}
+
+protocol GinoCartView: class {
+    func shouldShowSuccessMessage(_ message: String)
 }
 
 final class GinoCartPresenter: CartPresenter {
@@ -27,6 +34,8 @@ final class GinoCartPresenter: CartPresenter {
         get { return cartManager.delegate }
         set { cartManager.delegate = newValue }
     }
+    
+    weak var view: GinoCartView?
     
     var totalPrice: Double {
         return cartManager
@@ -53,5 +62,15 @@ final class GinoCartPresenter: CartPresenter {
     
     func removeDress(_ dress: Dress) {
         cartManager.removeFromCart(dress)
+    }
+    
+    func buyAllDresses() {
+        let dressCount = cartManager.totalDressCount()
+        cartManager.buyAllDresses()
+        view?.shouldShowSuccessMessage(formSuccessMassage(dressCount))
+    }
+    
+    private func formSuccessMassage(_ dressCount: Int) -> String {
+        return "You successfully have bought \(dressCount)"
     }
 }
