@@ -9,24 +9,26 @@
 import Foundation
 import RealmSwift
 
-protocol DatabaseManager {
+protocol DatabaseManager: DatabaseLoader, DatabaseWriter {
+    func deleteAllData()
+}
+
+protocol DatabaseLoader {
     func loadSizes() -> [SizeObject]
     func loadSize(_ key: DressSize) -> SizeObject?
     func loadDresses(_ category: DressCategory) -> [DressObject]
     func loadDresses() -> [DressObject]
-    
+}
+
+protocol DatabaseWriter {
     func saveSize(_ size: SizeObject)
     func saveDress(_ dress: DressObject)
-    
-    func deleteAllData()
     func updateDressCounter(_ dressPack: DressPack, removedUnits units: Int)
 }
 
 
 final class GinoDatabaseManager: DatabaseManager {
-    
-    // MARK: - Properties
-    
+
     private let realm = try! Realm()
     
 }
@@ -57,13 +59,13 @@ extension GinoDatabaseManager {
 // MARK: - Writable
 extension GinoDatabaseManager {
     func saveSize(_ size: SizeObject) {
-        try! realm.write {
+        try? realm.write {
             realm.add(size)
         }
     }
     
     func saveDress(_ dress: DressObject) {
-        try! realm.write {
+        try? realm.write {
             realm.add(dress)
         }
     }
@@ -84,24 +86,5 @@ extension GinoDatabaseManager {
         try? realm.write {
             dressPack.count -= units
         }
-    }
-}
-
-
-extension List where Element == DressPack {
-    func hasElementWith(_ color: DressColor, size: DressSize) -> Bool {
-        return contains(where: {
-            ($0.color == color.rawValue) && ($0.size?.name == size.rawValue)
-        })
-    }
-    
-    func elementWhere(_ color: DressColor, size: DressSize) -> DressPack? {
-        return first(where: {
-            ($0.color == color.rawValue) && ($0.size?.name == size.rawValue)
-        })
-    }
-    
-    func allColors() -> Set<DressColor> {
-        return Set(compactMap({ DressColor(rawValue: $0.color) }))
     }
 }

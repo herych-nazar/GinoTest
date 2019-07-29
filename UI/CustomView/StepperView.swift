@@ -47,10 +47,10 @@ final class StepperView: UIView, StepperViewInterface {
         return stackView
     }()
     
-    private lazy var plusButton: UIButton = {
+    private lazy var minusButton: UIButton = {
         let button = UIButton()
-        button.setImage(GinoIcon.plus.image, for: .normal)
-        button.addTarget(self, action: #selector(incrementStep(_:)), for: .touchUpInside)
+        button.setImage(GinoIcon.minus.image, for: .normal)
+        button.addTarget(self, action: #selector(decrementStep(_:)), for: .touchUpInside)
         
         return button
     }()
@@ -63,10 +63,10 @@ final class StepperView: UIView, StepperViewInterface {
         return label
     }()
     
-    private lazy var minusButton: UIButton = {
+    private lazy var plusButton: UIButton = {
         let button = UIButton()
-        button.setImage(GinoIcon.minus.image, for: .normal)
-        button.addTarget(self, action: #selector(decrementStep(_:)), for: .touchUpInside)
+        button.setImage(GinoIcon.plus.image, for: .normal)
+        button.addTarget(self, action: #selector(incrementStep(_:)), for: .touchUpInside)
         
         return button
     }()
@@ -83,6 +83,16 @@ final class StepperView: UIView, StepperViewInterface {
         setupViews()
     }
     
+    // MARK: - Action
+    
+    @objc private func decrementStep(_ sender: UIButton) {
+        stepCounter.decrement()
+    }
+    
+    @objc private func incrementStep(_ sender: UIButton) {
+        stepCounter.increment()
+    }
+    
     // MARK: - Methods
     
     func setStep(_ step: Int) {
@@ -95,14 +105,6 @@ final class StepperView: UIView, StepperViewInterface {
     
     private func setupViews() {
         addStackView()
-    }
-    
-    @objc private func decrementStep(_ sender: UIButton) {
-        stepCounter.decrement()
-    }
-    
-    @objc private func incrementStep(_ sender: UIButton) {
-        stepCounter.increment()
     }
 }
 

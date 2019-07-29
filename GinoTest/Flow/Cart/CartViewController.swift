@@ -141,7 +141,7 @@ extension CartViewController: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - GinoCartView
-extension CartViewController: GinoCartView {
+extension CartViewController: CartView {
     func shouldShowSuccessMessage(_ message: String) {
         let allert = UIAlertController(title: "Success", message: message, preferredStyle: .alert)
         allert.addAction(UIAlertAction(title: "Ok", style: .default))

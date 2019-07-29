@@ -27,7 +27,7 @@ final class GinoAppDependencyContainer {
             return GinoShopManager(databaseManager: databaseManager)
         }
         
-        func makeCartManager(_ shop: ShopBuyable) -> CartManager {
+        func makeCartManager(_ shop: ShopTill) -> CartManager {
             return GinoCartManager(shop)
         }
         

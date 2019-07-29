@@ -130,7 +130,6 @@ extension GinoTextField {
     }
 }
 
-
 // MARK: - UITextFieldDelegate
 extension GinoTextField: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {

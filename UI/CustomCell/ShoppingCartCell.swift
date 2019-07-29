@@ -113,6 +113,11 @@ final class ShoppingCartCell: UICollectionViewCell, ShoppingCartCellInterface {
         self.dress = dress
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        stepperView.setStep(dress?.orderCount ?? 1)
+    }
+    
     private func configureView() {
         backgroundColor = .white
         layer.cornerRadius = 5
@@ -121,11 +126,6 @@ final class ShoppingCartCell: UICollectionViewCell, ShoppingCartCellInterface {
     private func setupViews() {
         addContainerView()
         addStepperView()
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        stepperView.setStep(dress?.orderCount ?? 1)
     }
 }
 

@@ -13,7 +13,6 @@ final class SizeCalculatorViewController: UIViewController {
     // MARK: Properties
     
     private var presenter: SizeCalculatorPresenter
-    
     private var size: DressSize?
     
     // MARK: - Views
@@ -104,7 +103,6 @@ final class SizeCalculatorViewController: UIViewController {
     init(presenter: SizeCalculatorPresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
-        
         presenter.view = self
     }
     
@@ -122,6 +120,7 @@ final class SizeCalculatorViewController: UIViewController {
     }
     
     // MARK: - Action
+    
     @objc private func calculateSize(_ sender: UIButton) {
         if let bust = bustSelector.value?.toInt(),
             let waist = waistSelector.value?.toInt(),
@@ -152,7 +151,6 @@ final class SizeCalculatorViewController: UIViewController {
         setupCalculateButton()
         setupResultStack()
     }
-    
 }
 
 // MARK: - SizeCalculatorView

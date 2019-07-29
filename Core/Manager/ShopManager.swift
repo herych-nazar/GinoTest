@@ -8,16 +8,16 @@
 
 import UIKit
 
-protocol ShopManager: ShopBuyable, ShopSizes {
+protocol ShopManager: ShopTill, ShopSizes {
     func loadDresses(_ dressFilter: DressFilterResult) -> [DressObject]
 }
 
 protocol ShopSizes {
-    func loadSizes() -> [SizeObject]
+    func sizes() -> [SizeObject]
 }
 
-protocol ShopBuyable {
-    func buyDresses(_ dress: Dress)
+protocol ShopTill {
+    func buyDress(_ dress: Dress)
 }
 
 final class GinoShopManager: ShopManager {
@@ -33,13 +33,15 @@ final class GinoShopManager: ShopManager {
         generateData()
     }
     
+    // MARK: - Methods
+    
     func loadDresses(_ dressFilter: DressFilterResult) -> [DressObject] {
         return databaseManager
             .loadDresses(dressFilter.category)
             .filter { $0.storage.hasElementWith(dressFilter.color, size: dressFilter.size) }
     }
     
-    func loadSizes() -> [SizeObject] {
+    func sizes() -> [SizeObject] {
         return databaseManager.loadSizes()
     }
     
@@ -58,16 +60,14 @@ final class GinoShopManager: ShopManager {
             .forEach {
               databaseManager.saveDress($0)
         }
-        
     }
 }
 
-
+// MARK: - ShopBuyable
 extension GinoShopManager {
-    func buyDresses(_ dress: Dress) {
+    func buyDress(_ dress: Dress) {
         if let pack = dress.dress.storage.elementWhere(dress.color, size: dress.size) {
             databaseManager.updateDressCounter(pack, removedUnits: dress.orderCount ?? 0)
         }
     }
-    
 }

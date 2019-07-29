@@ -29,6 +29,8 @@ final class GinoDressFilterPresenter: DressFilterPresenter {
         dressDependencyContainer = container
     }
     
+    // MARK: - Methods
+    
     func makeSizeCalculator(delegate: SizeCalculatorDelegate?) -> UIViewController {
         return dressDependencyContainer.makeSizeCalculatorViewController(delegate: delegate)
     }
@@ -38,6 +40,7 @@ final class GinoDressFilterPresenter: DressFilterPresenter {
     }
 }
 
+// MARK: - DataSource
 extension DressFilterPresenter {
     var dressCollections: [String] {
         return DressCategory.allCases.map { $0.rawValue }

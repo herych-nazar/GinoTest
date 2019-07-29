@@ -8,16 +8,23 @@
 
 import Foundation
 
-protocol CartManager {
+protocol CartManager: CartAddable, CartManagerDataSource {
     var delegate: CartManagerDelegate? { get set }
     
-    func addDress(_ dress: Dress)
-    func dressesInShoppingCart() -> [Dress]
-    func dress(by indexPath: IndexPath) -> Dress
-    func didCartContain(_ dress: Dress) -> Bool
-    func removeFromCart(_ dress: Dress)
     func buyAllDresses()
     func totalDressCount() -> Int
+}
+
+protocol CartAddable {
+    func addDress(_ dress: Dress)
+    func removeFromCart(_ dress: Dress)
+    func didCartContain(_ dress: Dress) -> Bool
+}
+
+protocol CartManagerDataSource {
+    func numberOfDressesInCart() -> Int
+    func dressesInShoppingCart() -> [Dress]
+    func dress(by indexPath: IndexPath) -> Dress
 }
 
 protocol CartManagerDelegate: class {
@@ -29,33 +36,38 @@ final class GinoCartManager: CartManager {
     // MARK: - Properties
     
     weak var delegate: CartManagerDelegate?
-    
-    private let shop: ShopBuyable
+    private let shop: ShopTill
     private var dresses = [Dress]()
     
     // MARK: - Constructor
     
-    init(_ shop: ShopBuyable) {
+    init(_ shop: ShopTill) {
         self.shop = shop
     }
     
     // MARK: - Methods
     
-    func addDress(_ dress: Dress) {
-        dresses.append(dress)
-        delegate?.shouldUpdate()
+    func buyAllDresses() {
+        dresses.forEach {
+            shop.buyDress($0)
+            removeFromCart($0)
+        }
     }
     
-    func dressesInShoppingCart() -> [Dress] {
-        return dresses
-    }
-    
-    func dress(by indexPath: IndexPath) -> Dress {
-        return dresses[indexPath.item]
+    func totalDressCount() -> Int {
+        return dresses.reduce(0, { $0 + ($1.orderCount ?? 0) })
     }
     
     func didCartContain(_ dress: Dress) -> Bool {
         return dresses.contains(where: { $0.isEqual(to: dress) })
+    }
+}
+
+// MARK: - CartAddable
+extension GinoCartManager {
+    func addDress(_ dress: Dress) {
+        dresses.append(dress)
+        delegate?.shouldUpdate()
     }
     
     func removeFromCart(_ dress: Dress) {
@@ -66,15 +78,18 @@ final class GinoCartManager: CartManager {
             delegate?.shouldUpdate()
         }
     }
-    
-    func buyAllDresses() {
-        dresses.forEach {
-            shop.buyDresses($0)
-            removeFromCart($0)
-        }
+}
+
+// MARK: - CartManagerDataSource
+extension GinoCartManager {
+    func numberOfDressesInCart() -> Int {
+        return dresses.count
+    }
+    func dressesInShoppingCart() -> [Dress] {
+        return dresses
     }
     
-    func totalDressCount() -> Int {
-        return dresses.reduce(0, { $0 + ($1.orderCount ?? 0) })
+    func dress(by indexPath: IndexPath) -> Dress {
+        return dresses[indexPath.item]
     }
 }

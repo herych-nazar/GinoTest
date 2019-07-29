@@ -55,6 +55,7 @@ final class ColorsView: UIView, ColorViewInterface {
     }
     
     // MARK: - Methods
+    
     func setColors(_ colors: [UIColor]) {
         self.colors = colors
     }
@@ -71,7 +72,6 @@ final class ColorsView: UIView, ColorViewInterface {
         return view
     }
 }
-
 
 // MARK: - Layout
 extension ColorsView {

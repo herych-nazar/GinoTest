@@ -18,8 +18,7 @@ final class GinoDressResultPresenter: DressResultPresenter {
     // MARK: - Properties
     
     private let shopManager: ShopManager
-    private let cartManager: CartManager
-    
+    private let cartManager: CartAddable
     private let filterResult: DressFilterResult
     
     private lazy var data: [DressObject] = {
@@ -30,7 +29,7 @@ final class GinoDressResultPresenter: DressResultPresenter {
     
     init(result: DressFilterResult,
          shopManager: ShopManager,
-         cartManager: CartManager) {
+         cartManager: CartAddable) {
         self.filterResult = result
         self.shopManager = shopManager
         self.cartManager = cartManager
@@ -51,7 +50,7 @@ final class GinoDressResultPresenter: DressResultPresenter {
 
 // MARK: - DressResultCellDelegate
 extension GinoDressResultPresenter: DressResultCellDelegate {
-    func dress(didAddedToCart dress: Dress) {
+    func didAddedToCart(_ dress: Dress) {
         if cartManager.didCartContain(dress) {
             cartManager.removeFromCart(dress)
             dress.orderCount = nil

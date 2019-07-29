@@ -56,7 +56,7 @@ final class GinoSizeCalculatorPresenter: SizeCalculatorPresenter {
     }
     
     private func optimalSizes(bust: Int, waist: Int, hips: Int) -> [SizeObject] {
-        let sizes = shopSizes.loadSizes()
+        let sizes = shopSizes.sizes()
         
         let optimalForBust = sizes.sizeForBust(bust)
         let optimalForWaist = sizes.sizeForWais(waist)

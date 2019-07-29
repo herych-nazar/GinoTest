@@ -17,17 +17,15 @@ final class GinoTextPicker: UIView, GinoText, PickerLoadable {
     
     // MARK: - Properties
     
+    weak var delegate: GinoTextDelegate?
+    
     var title: String? {
-        didSet {
-            titleLabel.text = title
-        }
+        didSet { titleLabel.text = title }
     }
     
     var value: String? {
         return valueTextField.text
     }
-    
-    weak var delegate: GinoTextDelegate?
     
     private var data: [String]? {
         didSet {  picker.reloadAllComponents() }
@@ -125,6 +123,25 @@ final class GinoTextPicker: UIView, GinoText, PickerLoadable {
     }
 }
 
+// MARK: - UIPickerViewDelegate, UIPickerViewDataSource
+extension GinoTextPicker: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return data?.count ?? 0
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return data?[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        valueTextField.text = data?[row]
+    }
+}
+
 // MARK: - Layout
 extension GinoTextPicker {
     private func setupTitleLabel() {
@@ -143,24 +160,5 @@ extension GinoTextPicker {
             $0.top.constraint(to: titleLabel, by: .bottom(5))
             $0.constraint(to: self, by: .leading(0), .bottom(0), .trailing(0))
         }
-    }
-}
-
-// MARK: - UIPickerViewDelegate, UIPickerViewDataSource
-extension GinoTextPicker: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return data?.count ?? 0
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return data?[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        valueTextField.text = data?[row]
     }
 }

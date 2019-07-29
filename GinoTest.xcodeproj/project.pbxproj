@@ -57,6 +57,8 @@
 		BBBA1A5B22EF2D0700624680 /* List+internationalElemen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA1A5A22EF2D0700624680 /* List+internationalElemen.swift */; };
 		BBBA1A5D22EF46B100624680 /* String+random.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA1A5C22EF46B100624680 /* String+random.swift */; };
 		BBBA1A5F22EF723200624680 /* Dress+maxOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA1A5E22EF723200624680 /* Dress+maxOrder.swift */; };
+		BBBA1A6122EF8F1200624680 /* List+elementWhere.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA1A6022EF8F1200624680 /* List+elementWhere.swift */; };
+		BBBA1A6322EF8F5700624680 /* List+allColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA1A6222EF8F5700624680 /* List+allColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +116,8 @@
 		BBBA1A5A22EF2D0700624680 /* List+internationalElemen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "List+internationalElemen.swift"; sourceTree = "<group>"; };
 		BBBA1A5C22EF46B100624680 /* String+random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+random.swift"; sourceTree = "<group>"; };
 		BBBA1A5E22EF723200624680 /* Dress+maxOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dress+maxOrder.swift"; sourceTree = "<group>"; };
+		BBBA1A6022EF8F1200624680 /* List+elementWhere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "List+elementWhere.swift"; sourceTree = "<group>"; };
+		BBBA1A6222EF8F5700624680 /* List+allColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "List+allColors.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,6 +296,8 @@
 				BBBA1A5822EF2BE200624680 /* SizeObject+Description.swift */,
 				BBBA1A5022EEE6A300624680 /* Array<DressPack>+statusForFilter.swift */,
 				BBBA1A5E22EF723200624680 /* Dress+maxOrder.swift */,
+				BBBA1A6022EF8F1200624680 /* List+elementWhere.swift */,
+				BBBA1A6222EF8F5700624680 /* List+allColors.swift */,
 				BBBA1A5222EEE7C700624680 /* Array<DressColor>+toColor.swift */,
 				BBBA1A5C22EF46B100624680 /* String+random.swift */,
 				BBBA1A4E22EE5D2D00624680 /* UIImage+Constructor.swift */,
@@ -516,8 +522,10 @@
 				BBBA1A5722EF20D100624680 /* SizeObject+sizeFor.swift in Sources */,
 				BBBA1A4B22EE2FDA00624680 /* SizeObject.swift in Sources */,
 				BBA6CE2E22EC87FE00F8B6D9 /* GinoTextField.swift in Sources */,
+				BBBA1A6122EF8F1200624680 /* List+elementWhere.swift in Sources */,
 				BB32C94A22EC2FDE008AE956 /* AppDelegate.swift in Sources */,
 				BB32C98422EC4BD3008AE956 /* DressFilterPresenter.swift in Sources */,
+				BBBA1A6322EF8F5700624680 /* List+allColors.swift in Sources */,
 				BBBA1A3622EDCE7B00624680 /* StepperView.swift in Sources */,
 				BBA6CE3022ECCF5A00F8B6D9 /* GinoColor.swift in Sources */,
 				BBA6CE2822EC84FC00F8B6D9 /* Helpers.swift in Sources */,

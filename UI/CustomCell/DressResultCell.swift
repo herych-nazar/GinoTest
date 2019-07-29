@@ -15,7 +15,7 @@ protocol DressResultCellInterface: class {
 }
 
 protocol DressResultCellDelegate: class {
-    func dress(didAddedToCart dress: Dress)
+    func didAddedToCart(_ dress: Dress)
 }
 
 final class DressResultCell: UICollectionViewCell, DressResultCellInterface {
@@ -87,7 +87,6 @@ final class DressResultCell: UICollectionViewCell, DressResultCellInterface {
     
     private lazy var dressColorsView: ColorsView = {
         let view = ColorsView()
-        
         return view
     }()
     
@@ -107,7 +106,7 @@ final class DressResultCell: UICollectionViewCell, DressResultCellInterface {
     
     @objc private func addToCart(_ sender: UIButton) {
         guard let dress = dress else { return }
-        delegate?.dress(didAddedToCart: dress)
+        delegate?.didAddedToCart(dress)
     }
     
     // MARK: - Methods

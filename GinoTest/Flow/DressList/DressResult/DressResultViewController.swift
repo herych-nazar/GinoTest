@@ -44,7 +44,6 @@ final class DressResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureController()
     }
     
