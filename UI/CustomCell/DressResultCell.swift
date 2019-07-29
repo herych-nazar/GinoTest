@@ -114,10 +114,10 @@ final class DressResultCell: UICollectionViewCell, DressResultCellInterface {
     
     func setDress(_ dress: Dress?) {
         self.dress = dress
-        imageView.image = dress?.image
-        priceLabel.text = "$\(dress?.price ?? 0.0)"
-        dressColorsView.setColors(dress?.allColors ?? [])
-        descriptionLabel.text = dress?.description
+        imageView.image = UIImage(data: dress?.dress.image)
+        priceLabel.text = "$\(dress?.dress.price ?? 0.0)"
+        dressColorsView.setColors(dress?.allColors().toColor() ?? [])
+        descriptionLabel.text = dress?.dress.name
         configureAvailabilityLabel(dress?.availability)
     }
     

@@ -49,6 +49,8 @@
 		BBBA1A4B22EE2FDA00624680 /* SizeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA1A4A22EE2FDA00624680 /* SizeObject.swift */; };
 		BBBA1A4D22EE324600624680 /* DressObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA1A4C22EE324600624680 /* DressObject.swift */; };
 		BBBA1A4F22EE5D2D00624680 /* UIImage+Constructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA1A4E22EE5D2D00624680 /* UIImage+Constructor.swift */; };
+		BBBA1A5122EEE6A300624680 /* Array<DressPack>+statusForFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA1A5022EEE6A300624680 /* Array<DressPack>+statusForFilter.swift */; };
+		BBBA1A5322EEE7C700624680 /* Array<DressColor>+toColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA1A5222EEE7C700624680 /* Array<DressColor>+toColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +100,8 @@
 		BBBA1A4A22EE2FDA00624680 /* SizeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeObject.swift; sourceTree = "<group>"; };
 		BBBA1A4C22EE324600624680 /* DressObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DressObject.swift; sourceTree = "<group>"; };
 		BBBA1A4E22EE5D2D00624680 /* UIImage+Constructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Constructor.swift"; sourceTree = "<group>"; };
+		BBBA1A5022EEE6A300624680 /* Array<DressPack>+statusForFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array<DressPack>+statusForFilter.swift"; sourceTree = "<group>"; };
+		BBBA1A5222EEE7C700624680 /* Array<DressColor>+toColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array<DressColor>+toColor.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +274,8 @@
 			isa = PBXGroup;
 			children = (
 				BBBA1A3722EDCEC600624680 /* Int+increment+decrement.swift */,
+				BBBA1A5022EEE6A300624680 /* Array<DressPack>+statusForFilter.swift */,
+				BBBA1A5222EEE7C700624680 /* Array<DressColor>+toColor.swift */,
 				BBBA1A4E22EE5D2D00624680 /* UIImage+Constructor.swift */,
 				BBBA1A4822EE067300624680 /* String+converter->DressFilterResult.swift */,
 				BBBA1A3F22EDF3A500624680 /* String+toInt.swift */,
@@ -483,7 +489,9 @@
 				BBBA1A4F22EE5D2D00624680 /* UIImage+Constructor.swift in Sources */,
 				BB32C99122EC594C008AE956 /* DressFilterResult.swift in Sources */,
 				BB32C96822EC3C1B008AE956 /* GinoAppDependencyContainer.swift in Sources */,
+				BBBA1A5322EEE7C700624680 /* Array<DressColor>+toColor.swift in Sources */,
 				BBBA1A4922EE067300624680 /* String+converter->DressFilterResult.swift in Sources */,
+				BBBA1A5122EEE6A300624680 /* Array<DressPack>+statusForFilter.swift in Sources */,
 				BBBA1A3822EDCEC600624680 /* Int+increment+decrement.swift in Sources */,
 				BBBA1A4B22EE2FDA00624680 /* SizeObject.swift in Sources */,
 				BBA6CE2E22EC87FE00F8B6D9 /* GinoTextField.swift in Sources */,

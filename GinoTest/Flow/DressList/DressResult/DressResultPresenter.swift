@@ -52,6 +52,12 @@ final class GinoDressResultPresenter: DressResultPresenter {
 // MARK: - DressResultCellDelegate
 extension GinoDressResultPresenter: DressResultCellDelegate {
     func dress(didAddedToCart dress: Dress) {
-        cartManager.addDress(dress)
+        if cartManager.didCartContain(dress) {
+            cartManager.removeFromCart(dress)
+            dress.orderCount = nil
+        } else {
+            dress.orderCount = 1 
+            cartManager.addDress(dress)
+        }
     }
 }

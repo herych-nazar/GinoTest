@@ -95,6 +95,10 @@ final class CartViewController: UIViewController {
         setupTotalLabel()
         setupCollectionView()
     }
+    
+    private func reloadTotal() {
+        totalLabel.text = "Subtotal: $\(presenter.totalPrice)"
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -108,6 +112,7 @@ extension CartViewController: UICollectionViewDataSource {
         
         if let dressCell = cell as? ShoppingCartCellInterface {
             dressCell.setDress(presenter.dressAt(indexPath))
+            dressCell.delegate = self
         }
         
         return cell
@@ -130,17 +135,22 @@ extension CartViewController: UICollectionViewDelegateFlowLayout {
 extension CartViewController: CartManagerDelegate {
     func shouldUpdate() {
         collectionView.reloadData()
+        reloadTotal()
     }
 }
 
 // MARK: - ShoppingCartDelegate
 extension CartViewController: ShoppingCartDelegate {
     func shoppingCart(_ shoppingCart: ShoppingCartCellInterface, didChangeCount order: Int) {
-        
+        shoppingCart.dress?.orderCount = order
+        reloadTotal()
     }
     
     func didRemoveCartEntity(_ shoppingCart: ShoppingCartCellInterface) {
-        
+        if let dress = shoppingCart.dress {
+            presenter.removeDress(dress)
+            dress.orderCount = nil
+        }
     }
 }
 

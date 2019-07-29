@@ -80,8 +80,8 @@ extension List where Element == DressPack {
         })
     }
     
-    func allColors() -> Set<UIColor> {
-        return Set(compactMap({ DressColor(rawValue: $0.color)?.color }))
+    func allColors() -> Set<DressColor> {
+        return Set(compactMap({ DressColor(rawValue: $0.color) }))
     }
 }
 

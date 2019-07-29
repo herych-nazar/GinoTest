@@ -13,6 +13,9 @@ protocol CartManager {
     
     func addDress(_ dress: Dress)
     func dressesInShoppingCart() -> [Dress]
+    func dress(by indexPath: IndexPath) -> Dress
+    func didCartContain(_ dress: Dress) -> Bool
+    func removeFromCart(_ dress: Dress)
 }
 
 protocol CartManagerDelegate: class {
@@ -38,9 +41,24 @@ final class GinoCartManager: CartManager {
     
     func addDress(_ dress: Dress) {
         dresses.append(dress)
+        delegate?.shouldUpdate()
     }
     
     func dressesInShoppingCart() -> [Dress] {
         return dresses
+    }
+    
+    func dress(by indexPath: IndexPath) -> Dress {
+        return dresses[indexPath.item]
+    }
+    
+    func didCartContain(_ dress: Dress) -> Bool {
+        return dresses.contains(where: { $0.isEqual(to: dress) })
+    }
+    
+    func removeFromCart(_ dress: Dress) {
+        dresses.removeAll { $0.isEqual(to: dress) }
+        dress.orderCount = nil
+        delegate?.shouldUpdate()
     }
 }

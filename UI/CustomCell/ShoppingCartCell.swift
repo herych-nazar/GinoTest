@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ShoppingCartCellInterface {
+protocol ShoppingCartCellInterface: class {
     var dress: Dress? { get }
     var delegate: ShoppingCartDelegate? { get set }
     
@@ -28,9 +28,9 @@ final class ShoppingCartCell: UICollectionViewCell, ShoppingCartCellInterface {
     
     private (set) var dress: Dress? {
         didSet {
-            dressImageView.image = dress?.image
-            descriptionLabel.text = dress?.description
-            priceLabel.text = "$\(dress?.price ?? 0.0)"
+            dressImageView.image = UIImage(data: dress?.dress.image)
+            descriptionLabel.text = dress?.dress.name
+            priceLabel.text = "$\(dress?.dress.price ?? 0.0)"
         }
     }
     
@@ -67,6 +67,7 @@ final class ShoppingCartCell: UICollectionViewCell, ShoppingCartCellInterface {
     private lazy var deleteButton: UIButton = {
         let button = UIButton()
         button.setImage(GinoIcon.delete.image, for: .normal)
+        button.addTarget(self, action: #selector(removeDress(_:)), for: .touchUpInside)
         
         return button
     }()
@@ -98,7 +99,14 @@ final class ShoppingCartCell: UICollectionViewCell, ShoppingCartCellInterface {
         setupViews()
     }
     
+    // MARK: - Actions
+    
+    @objc private func removeDress(_ sender: UIButton) {
+        delegate?.didRemoveCartEntity(self)
+    }
+    
     // MARK: - Methods
+    
     func setDress(_ dress: Dress?) {
         self.dress = dress
     }

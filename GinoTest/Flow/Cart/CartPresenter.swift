@@ -10,9 +10,11 @@ import Foundation
 
 protocol CartPresenter {
     var delegate: CartManagerDelegate? { get set }
+    var totalPrice: Double { get }
     
     func numberOfDressesInCart() -> Int
     func dressAt(_ indexPath: IndexPath) -> Dress
+    func removeDress(_ dress: Dress)
 }
 
 final class GinoCartPresenter: CartPresenter {
@@ -26,6 +28,15 @@ final class GinoCartPresenter: CartPresenter {
         set { cartManager.delegate = newValue }
     }
     
+    var totalPrice: Double {
+        return cartManager
+            .dressesInShoppingCart()
+            .compactMap {
+                guard let count = $0.orderCount else { return nil }
+                return Double(count) * $0.dress.price }
+            .reduce(0.0) { $0 + $1 }
+    }
+    
     // MARK: - Constructor
     
     init(_ cartManager: CartManager) {
@@ -37,6 +48,10 @@ final class GinoCartPresenter: CartPresenter {
     }
     
     func dressAt(_ indexPath: IndexPath) -> Dress {
-        return cartManager.dressesInShoppingCart()[indexPath.item]
+        return cartManager.dress(by: indexPath)
+    }
+    
+    func removeDress(_ dress: Dress) {
+        cartManager.removeFromCart(dress)
     }
 }
