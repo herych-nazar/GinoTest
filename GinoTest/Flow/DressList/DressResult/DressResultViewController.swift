@@ -47,6 +47,11 @@ final class DressResultViewController: UIViewController {
         configureController()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        collectionView.reloadData()
+    }
+    
     // MARK: - Methods
     
     private func configureController() {

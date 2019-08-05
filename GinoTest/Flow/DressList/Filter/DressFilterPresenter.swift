@@ -45,6 +45,7 @@ extension DressFilterPresenter {
     var dressCollections: [String] {
         return DressCategory.allCases.map { $0.rawValue }
     }
+    
     var dressColors: [String] {
         return DressColor.allCases.map { $0.rawValue }
     }

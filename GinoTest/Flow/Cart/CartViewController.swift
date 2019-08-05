@@ -166,7 +166,6 @@ extension CartViewController: ShoppingCartDelegate {
     func didRemoveCartEntity(_ shoppingCart: ShoppingCartCellInterface) {
         if let dress = shoppingCart.dress {
             presenter.removeDress(dress)
-            dress.orderCount = nil
         }
     }
 }

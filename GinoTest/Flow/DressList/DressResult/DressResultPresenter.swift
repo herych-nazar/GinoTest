@@ -10,7 +10,7 @@ import Foundation
 
 protocol DressResultPresenter: DressResultCellDelegate {
     func numberOfResults() -> Int
-    func dressResultAt(_ indexPath: IndexPath) -> Dress?
+    func dressResultAt(_ indexPath: IndexPath) -> Dress
 }
 
 final class GinoDressResultPresenter: DressResultPresenter {
@@ -21,8 +21,10 @@ final class GinoDressResultPresenter: DressResultPresenter {
     private let cartManager: CartAddable
     private let filterResult: DressFilterResult
     
-    private lazy var data: [DressObject] = {
-        return shopManager.loadDresses(filterResult)
+    private lazy var data: [Dress] = {
+        return shopManager
+            .loadDresses(filterResult)
+            .compactMap { $0.toDress(filterResult) }
     }()
     
     // MARK: - Constructor
@@ -43,8 +45,8 @@ final class GinoDressResultPresenter: DressResultPresenter {
         return data.count
     }
     
-    func dressResultAt(_ indexPath: IndexPath) -> Dress? {
-        return data[indexPath.item].toDress(filterResult)
+    func dressResultAt(_ indexPath: IndexPath) -> Dress {
+        return data[indexPath.item]
     }
 }
 
@@ -58,5 +60,10 @@ extension GinoDressResultPresenter: DressResultCellDelegate {
             dress.orderCount = 1 
             cartManager.addDress(dress)
         }
+    }
+    
+    func didCartContainDress(_ dress: Dress?) -> Bool {
+        guard let dress = dress else { return false }
+        return cartManager.didCartContain(dress)
     }
 }

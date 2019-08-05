@@ -16,6 +16,7 @@ protocol DressResultCellInterface: class {
 
 protocol DressResultCellDelegate: class {
     func didAddedToCart(_ dress: Dress)
+    func didCartContainDress(_ dress: Dress?) -> Bool
 }
 
 final class DressResultCell: UICollectionViewCell, DressResultCellInterface {
@@ -71,6 +72,7 @@ final class DressResultCell: UICollectionViewCell, DressResultCellInterface {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "cart"), for: .normal)
         button.addTarget(self, action: #selector(addToCart(_:)), for: .touchUpInside)
+        button.backgroundColor = cartButtonColor
         
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1).cgColor
@@ -107,6 +109,7 @@ final class DressResultCell: UICollectionViewCell, DressResultCellInterface {
     @objc private func addToCart(_ sender: UIButton) {
         guard let dress = dress else { return }
         delegate?.didAddedToCart(dress)
+        sender.backgroundColor = cartButtonColor
     }
     
     // MARK: - Methods
@@ -118,6 +121,13 @@ final class DressResultCell: UICollectionViewCell, DressResultCellInterface {
         dressColorsView.setColors(dress?.allColors().toColor() ?? [])
         descriptionLabel.text = dress?.dress.name
         configureAvailabilityLabel(dress?.availability)
+        cartButton.backgroundColor = cartButtonColor
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        dress = nil
+        cartButton.backgroundColor = cartButtonColor
     }
     
     private func configureCell() {
@@ -142,6 +152,10 @@ final class DressResultCell: UICollectionViewCell, DressResultCellInterface {
         availabilityTextView.text = availability?.description
         availabilityTextView.textColor = availability?.textColor
         availabilityTextView.backgroundColor = availability?.backgroundColor
+    }
+    
+    private var cartButtonColor: UIColor {
+        return delegate?.didCartContainDress(dress).orderCartColor() ?? .white
     }
 }
 

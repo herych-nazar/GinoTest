@@ -71,7 +71,7 @@ extension GinoDatabaseManager {
     }
 }
 
-// MARK: - Deletable
+// MARK: - Removable
 extension GinoDatabaseManager {
     func deleteAllData() {
         try? realm.write {
